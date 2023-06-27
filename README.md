@@ -1,3 +1,7 @@
+# cr8list / cratelist README
+
+cratelist or "cr8list" is a web app for DJs to share and organize their music among friends and fans.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
