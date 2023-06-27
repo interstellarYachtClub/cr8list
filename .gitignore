@@ -1,5 +1,5 @@
 #ignore directories
-node_modules/
+src/config
 
 #ignore files
 firebaseauth.json
