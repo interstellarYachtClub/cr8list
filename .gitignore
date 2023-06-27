@@ -1,2 +1,5 @@
-#ignore
-auth.json
+#ignore directories
+node_modules/
+
+#ignore files
+firebaseauth.json
