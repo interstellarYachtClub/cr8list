@@ -5,7 +5,7 @@ import {
 } from 'firebase/auth';
 import { useState, useEffect } from 'react';
 import { auth, googleProvider, db } from '../auth/firebaseauth';
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, collection, doc } from 'firebase/firestore';
 
 
 
@@ -31,7 +31,7 @@ export const Authform = () => {
   };
 
   //logout
-  const signOut = async () => {
+  const logOut = async () => {
     try {
       await signOut(auth);
     } catch (err) {
@@ -41,9 +41,10 @@ export const Authform = () => {
 
   //console.log(auth?.currentUser.email);
   //console.log(auth?.currentUser.photoURL);
-
+  const [tracks, setTracks] = useState([]);
   const [playlists, setPlaylists] = useState([]);
-  const playlistsCollectionRef = collection(db, "Playlists/marcfifelibrary/crate");
+  const playlistsCollectionRef = collection(db, "/marcfifemusic/9LaUV6CjV599KmbDIDzT/crates");
+  //const subdocRef = db.collection('marcfifemusic', '9LaUV6CjV599KmbDIDzT', 'crates').doc('pakjlOnRD38oyBX5CQ7b');
 
   useEffect(() => {
     const getPlaylists = async () => {
@@ -55,14 +56,49 @@ export const Authform = () => {
         ...doc.data(), id:doc.id,
       }));
 
-      console.log(filtereddata);
       setPlaylists(filtereddata);
       } catch (err) {
         console.error(err);
       }
     };
     getPlaylists();
+
+    playlists.forEach(playlist => {
+      console.log(playlist.id);
+      const subdocRef = doc.collection(db, 'marcfifemusic', '9LaUV6CjV599KmbDIDzT', 'crates').doc('pakjlOnRD38oyBX5CQ7b');
+      //
+      // const subdocRef = doc(collection(db, 'marcfifemusic', '9LaUV6CjV599KmbDIDzT', 'crates'), 'pakjlOnRD38oyBX5CQ7b');
+      
+      let docData = '';
+      subdocRef.get().then(function(doc) {
+        if (doc.exists) {
+          docData = doc.data();
+        }
+        console.log('data');
+      });
+
+      // const getTracks = async () => {
+      //   //data
+      //   //setstate
+      //   try {
+      //   const data = await getDocs(subdocRef);
+      //   const filtereddata = data.docs.map((doc) => ({
+      //     ...doc.data(), id:doc.id,
+      //   }));
+  
+      //   setTracks(filtereddata);
+      //   } catch (err) {
+      //     console.error(err);
+      //   }
+      // };
+      // getTracks();
+    });
+
+    
   }, []);
+  console.log(playlists);
+  console.log(tracks);
+  
 
   return (
     <div>
@@ -81,21 +117,20 @@ export const Authform = () => {
       </div>
       <div>
         <div>//logout</div>
-        <button onClick={signOut}>sign out</button>
+        <button onClick={logOut}>sign out</button>
       </div>
 
       <div>
         {playlists.map((playlist) => (
           <div key="playlistInfo">
             <div>
+              <h1>
             {playlist.name}
+            </h1>
             </div>
-            <div>
-              <p>user: {playlist.ownerName}</p>
-              </div>
               <ul>
               {playlist.tracks.map((track) => (
-                console.log(playlist.tracks.docs)
+                <p>{track.id}</p>
                   
               ))}
               </ul>
