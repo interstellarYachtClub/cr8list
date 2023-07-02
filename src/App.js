@@ -11,7 +11,7 @@ function App() {
         <h1>CrateList</h1>
       </header>
       <main>
-        <div>Dig deeper into your music crate.</div>
+        <div class="">Dig deeper into your music crate.</div>
         <Authform />
       </main>
     </div>
