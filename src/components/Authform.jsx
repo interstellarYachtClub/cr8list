@@ -131,7 +131,7 @@ export const Authform = () => {
   };
 
   return (
-    <div>
+    <div class="flex flex-col justify-left">
       <div>//email signin</div>
       <input placeholder="email" onChange={(e) => setEmail(e.target.value)} />
       <input
@@ -148,7 +148,7 @@ export const Authform = () => {
         <button onClick={logOut}>sign out</button>
       </div>
 
-      <div>
+      <div class="flex flex-col justify-left">
         <h2>Create a new cratelist</h2>
         <input
           type="text"
@@ -171,7 +171,7 @@ export const Authform = () => {
       <div>
         <h2>Crate Library:</h2>
         {playlists.map((playlist) => (
-          <div key="playlistLibrary">
+          <div class="flex justify-center" key="playlistLibrary">
             <div>
               <p>
                 {playlist.name} {playlist.isPublic ? '(public)' : '(private)'}
@@ -186,7 +186,7 @@ export const Authform = () => {
           </div>
         ))}
       </div>
-      <div>
+      <div class="flex flex-col justify-left">
         <h2>Manual Add Track</h2>
         <input
           type="text"
@@ -213,9 +213,9 @@ export const Authform = () => {
         <button onClick={onSubmitManualTrack}>Create New Track</button>
       </div>
       <h2>Track Library</h2>
-      <div>
+      <div class="px-8">
         {tracks.map((track) => (
-          <div key="trackLibary">
+          <div id="trackLibrary" key="trackLibrary">
             <div>
               <span>
                 {track.name} - {track.artist}
