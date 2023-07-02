@@ -24,6 +24,8 @@ export const Authform = () => {
   const [newCratelistPublic, setNewCratelistPublic] = useState(false);
   //manual track add states
   const [newTrackName, setNewTrackName] = useState('');
+  const [newTrackArtist, setNewTrackArtist] = useState('');
+  const [newTrackIsId, setNewTrackIsId] = useState(false);
 
   //email/pass
   const signIn = async () => {
@@ -119,10 +121,9 @@ export const Authform = () => {
   const onSubmitManualTrack = async () => {
     try {
       await addDoc(playlistsCollectionRef, {
-        name: newCratelistName,
-        isPublic: newCratelistPublic,
-        dateCreated: '',
-        tracks: [],
+        name: newTrackName,
+        artist: newTrackArtist,
+        isIdId: newTrackIsId,
       });
     } catch (err) {
       console.error(err);
@@ -148,7 +149,7 @@ export const Authform = () => {
       </div>
 
       <div>
-        <h1>Create a new cratelist</h1>
+        <h2>Create a new cratelist</h2>
         <input
           type="text"
           id="cratelistName"
@@ -168,7 +169,7 @@ export const Authform = () => {
       </div>
 
       <div>
-        <h1>Crate Library:</h1>
+        <h2>Crate Library:</h2>
         {playlists.map((playlist) => (
           <div key="playlistLibrary">
             <div>
@@ -186,25 +187,32 @@ export const Authform = () => {
         ))}
       </div>
       <div>
-        <h1>Manual Add Track</h1>
+        <h2>Manual Add Track</h2>
         <input
           type="text"
           id="manTrackName"
           required
-          placeholder="Track name"
-          onChange={(e) => setNewCratelistName(e.target.value)}
+          placeholder="Track"
+          onChange={(e) => setNewTrackName(e.target.value)}
+        />
+        <input
+          type="text"
+          id="manTrackArtist"
+          required
+          placeholder="Artist"
+          onChange={(e) => setNewTrackArtist(e.target.value)}
         />
         <input
           type="checkbox"
-          id="isPublic"
+          id="isId"
           placeholder="Public"
-          checked={newCratelistPublic}
+          checked={newTrackIsId}
           onChange={(e) => setNewCratelistPublic(e.target.checked)}
         />
-        <label for="isPublic">Make Public</label>
-        <button onClick={onSubmitCratelist}>Create New Cratelist</button>
+        <label for="isPublic">WIP/ID-ID</label>
+        <button onClick={onSubmitManualTrack}>Create New Track</button>
       </div>
-      <h1>Track Library</h1>
+      <h2>Track Library</h2>
       <div>
         {tracks.map((track) => (
           <div key="trackLibary">
