@@ -5,13 +5,26 @@ import {
 } from 'firebase/auth';
 import { useState, useEffect } from 'react';
 import { auth, googleProvider, db } from '../auth/firebaseauth';
-import { getDocs, collection, doc } from 'firebase/firestore';
-
-
+import {
+  getDocs,
+  collection,
+  addDoc,
+  doc,
+  query,
+  where,
+} from 'firebase/firestore';
+//import NewCratelist from './NewCratelist';
 
 export const Authform = () => {
+  //login states
   const [email, setEmail] = useState('');
   const [passwd, setPasswd] = useState('');
+  //newlist states
+  const [newCratelistName, setNewCratelistName] = useState('');
+  const [newCratelistPublic, setNewCratelistPublic] = useState(false);
+  //manual track add states
+  const [newTrackName, setNewTrackName] = useState('');
+
   //email/pass
   const signIn = async () => {
     try {
@@ -43,68 +56,82 @@ export const Authform = () => {
   //console.log(auth?.currentUser.photoURL);
   const [tracks, setTracks] = useState([]);
   const [playlists, setPlaylists] = useState([]);
-  const playlistsCollectionRef = collection(db, "/marcfifemusic/9LaUV6CjV599KmbDIDzT/crates");
-  //const subdocRef = db.collection('marcfifemusic', '9LaUV6CjV599KmbDIDzT', 'crates').doc('pakjlOnRD38oyBX5CQ7b');
+  const playlistsCollectionRef = collection(
+    db,
+    '/marcfifemusic/9LaUV6CjV599KmbDIDzT/crates'
+  );
+  const tracksCollectionRef = collection(
+    db,
+    '/marcfifemusic/9LaUV6CjV599KmbDIDzT/tracks'
+  );
+  //const trackRef = db.collection('marcfifemusic', '9LaUV6CjV599KmbDIDzT', 'crates').doc(trackDocId);
+  //8IVNdm3psxUSQGsZIr3j
 
   useEffect(() => {
     const getPlaylists = async () => {
       //data
       //setstate
       try {
-      const data = await getDocs(playlistsCollectionRef);
-      const filtereddata = data.docs.map((doc) => ({
-        ...doc.data(), id:doc.id,
-      }));
+        const data = await getDocs(playlistsCollectionRef);
+        const filtereddata = data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
 
-      setPlaylists(filtereddata);
+        setPlaylists(filtereddata);
       } catch (err) {
         console.error(err);
       }
     };
     getPlaylists();
+    const getTracks = async () => {
+      //data
+      //setstate
+      try {
+        const data = await getDocs(tracksCollectionRef);
+        const filtereddata = data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
 
-    playlists.forEach(playlist => {
-      console.log(playlist.id);
-      const subdocRef = doc.collection(db, 'marcfifemusic', '9LaUV6CjV599KmbDIDzT', 'crates').doc('pakjlOnRD38oyBX5CQ7b');
-      //
-      // const subdocRef = doc(collection(db, 'marcfifemusic', '9LaUV6CjV599KmbDIDzT', 'crates'), 'pakjlOnRD38oyBX5CQ7b');
-      
-      let docData = '';
-      subdocRef.get().then(function(doc) {
-        if (doc.exists) {
-          docData = doc.data();
-        }
-        console.log('data');
-      });
-
-      // const getTracks = async () => {
-      //   //data
-      //   //setstate
-      //   try {
-      //   const data = await getDocs(subdocRef);
-      //   const filtereddata = data.docs.map((doc) => ({
-      //     ...doc.data(), id:doc.id,
-      //   }));
-  
-      //   setTracks(filtereddata);
-      //   } catch (err) {
-      //     console.error(err);
-      //   }
-      // };
-      // getTracks();
-    });
-
-    
+        setTracks(filtereddata);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    getTracks();
   }, []);
   console.log(playlists);
   console.log(tracks);
-  
+
+  const onSubmitCratelist = async () => {
+    try {
+      await addDoc(playlistsCollectionRef, {
+        name: newCratelistName,
+        isPublic: newCratelistPublic,
+        dateCreated: '',
+        tracks: [],
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const onSubmitManualTrack = async () => {
+    try {
+      await addDoc(playlistsCollectionRef, {
+        name: newCratelistName,
+        isPublic: newCratelistPublic,
+        dateCreated: '',
+        tracks: [],
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div>
-      <div>
-        //email signin
-      </div>
+      <div>//email signin</div>
       <input placeholder="email" onChange={(e) => setEmail(e.target.value)} />
       <input
         placeholder="password"
@@ -121,20 +148,72 @@ export const Authform = () => {
       </div>
 
       <div>
+        <h1>Create a new cratelist</h1>
+        <input
+          type="text"
+          id="cratelistName"
+          required
+          placeholder="Cratelist Name"
+          onChange={(e) => setNewCratelistName(e.target.value)}
+        />
+        <input
+          type="checkbox"
+          id="isPublic"
+          placeholder="Public"
+          checked={newCratelistPublic}
+          onChange={(e) => setNewCratelistPublic(e.target.checked)}
+        />
+        <label for="isPublic">Make Public</label>
+        <button onClick={onSubmitCratelist}>Create New Cratelist</button>
+      </div>
+
+      <div>
+        <h1>Crate Library:</h1>
         {playlists.map((playlist) => (
-          <div key="playlistInfo">
+          <div key="playlistLibrary">
             <div>
-              <h1>
-            {playlist.name}
-            </h1>
+              <p>
+                {playlist.name} {playlist.isPublic ? '(public)' : '(private)'}
+              </p>
             </div>
-              <ul>
+
+            {/* <ul>
               {playlist.tracks.map((track) => (
                 <p>{track.id}</p>
-                  
               ))}
-              </ul>
-              </div>
+            </ul> */}
+          </div>
+        ))}
+      </div>
+      <div>
+        <h1>Manual Add Track</h1>
+        <input
+          type="text"
+          id="manTrackName"
+          required
+          placeholder="Track name"
+          onChange={(e) => setNewCratelistName(e.target.value)}
+        />
+        <input
+          type="checkbox"
+          id="isPublic"
+          placeholder="Public"
+          checked={newCratelistPublic}
+          onChange={(e) => setNewCratelistPublic(e.target.checked)}
+        />
+        <label for="isPublic">Make Public</label>
+        <button onClick={onSubmitCratelist}>Create New Cratelist</button>
+      </div>
+      <h1>Track Library</h1>
+      <div>
+        {tracks.map((track) => (
+          <div key="trackLibary">
+            <div>
+              <span>
+                {track.name} - {track.artist}
+              </span>
+            </div>
+          </div>
         ))}
       </div>
     </div>
