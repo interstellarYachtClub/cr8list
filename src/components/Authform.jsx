@@ -1,5 +1,6 @@
 import {
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from 'firebase/auth';
@@ -28,11 +29,27 @@ export const Authform = () => {
   const [newTrackIsId, setNewTrackIsId] = useState(false);
 
   //email/pass
-  const signIn = async () => {
+  const createAccount = async () => {
     try {
       await createUserWithEmailAndPassword(auth, email, passwd);
     } catch (err) {
       console.error(err);
+    }
+  };
+  const signInAccount = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, email, passwd).then(
+        (userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          // ...
+          console.log(user);
+        }
+      );
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode + ' : ' + errorMessage);
     }
   };
 
@@ -132,13 +149,19 @@ export const Authform = () => {
 
   return (
     <div class="flex flex-col justify-left">
-      <div>//email signin</div>
-      <input placeholder="email" onChange={(e) => setEmail(e.target.value)} />
+      <div>//create account _ sign in</div>
       <input
+        type="text"
+        placeholder="email"
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <input
+        type="password"
         placeholder="password"
         onChange={(e) => setPasswd(e.target.value)}
       />
-      <button onClick={signIn}>sign in</button>
+      <button onClick={createAccount}>create account</button>
+      or <button onClick={signInAccount}>sign in</button>
       <div>
         <div>//google signin</div>
         <button onClick={signIntoGoogle}>sign into google</button>
@@ -147,7 +170,6 @@ export const Authform = () => {
         <div>//logout</div>
         <button onClick={logOut}>sign out</button>
       </div>
-
       <div class="flex flex-col justify-left">
         <h2>Create a new cratelist</h2>
         <input
@@ -167,7 +189,6 @@ export const Authform = () => {
         <label for="isPublic">Make Public</label>
         <button onClick={onSubmitCratelist}>Create New Cratelist</button>
       </div>
-
       <div>
         <h2>Crate Library:</h2>
         {playlists.map((playlist) => (
@@ -227,5 +248,3 @@ export const Authform = () => {
     </div>
   );
 };
-
-export default Authform;
