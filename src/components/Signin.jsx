@@ -54,8 +54,8 @@ const Signin = () => {
   };
 
   return (
-    <div>
-      <div>//create account _ sign in</div>
+    <div className="flex flex-col space-y-4 text-center">
+      <div className="">//create account _ sign in</div>
       <input
         type="text"
         placeholder="email"
@@ -67,11 +67,10 @@ const Signin = () => {
         onChange={(e) => setPasswd(e.target.value)}
       />
       <button onClick={createAccount}>create account</button>
-      or <button onClick={signInAccount}>sign in</button>
-      <div>
-        <div>//google signin</div>
-        <button onClick={signIntoGoogle}>sign into google</button>
-      </div>
+      <p> or </p>
+      <button onClick={signInAccount}>sign in</button>
+      <div className="pt-8">//google signin</div>
+      <button onClick={signIntoGoogle}>sign into google</button>
     </div>
   );
 };

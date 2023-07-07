@@ -16,6 +16,15 @@ code {
     monospace;
 } */
 
+/*** H E A D E R***/
+header.App-header {
+  @apply flex justify-between items-center;
+}
+
+header.App-header div {
+  @apply text-sm;
+}
+
 body {
   font-family: 'Kanit', sans-serif;
   font-weight: 200;
@@ -26,7 +35,7 @@ main {
 }
 
 h1 {
-  @apply text-6xl mb-4;
+  @apply text-4xl mb-4;
 }
 
 h2 {
