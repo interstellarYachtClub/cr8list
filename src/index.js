@@ -13,6 +13,7 @@ import {
   RouterProvider,
   BrowserRouter,
 } from 'react-router-dom';
+import { AuthContextProvider } from './context/AuthContext';
 
 //<Route path="dashboard" element={<Dashboard />} />
 
@@ -27,7 +28,9 @@ import {
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Mainapp />
+      <AuthContextProvider>
+        <Mainapp />
+      </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

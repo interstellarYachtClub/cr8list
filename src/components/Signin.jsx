@@ -4,20 +4,15 @@ import {
   signInWithPopup,
   signOut,
 } from 'firebase/auth';
-import { useState, useEffect } from 'react';
-import { auth, googleProvider, db } from '../auth/firebaseauth';
+import { useState, useEffect, useContext, useReducer } from 'react';
+import { auth, googleProvider } from '../auth/firebaseauth';
+import { AuthContext } from '../context/AuthContext';
 
 const Signin = () => {
+  const { dispatch } = useContext(AuthContext);
   //login states
   const [email, setEmail] = useState('');
   const [passwd, setPasswd] = useState('');
-  //newlist states
-  const [newCratelistName, setNewCratelistName] = useState('');
-  const [newCratelistPublic, setNewCratelistPublic] = useState(false);
-  //manual track add states
-  const [newTrackName, setNewTrackName] = useState('');
-  const [newTrackArtist, setNewTrackArtist] = useState('');
-  const [newTrackIsId, setNewTrackIsId] = useState(false);
 
   //email/pass
   const createAccount = async () => {
@@ -33,8 +28,7 @@ const Signin = () => {
         (userCredential) => {
           // Signed in
           const user = userCredential.user;
-          // ...
-          console.log(user);
+          dispatch({ type: 'SIGNEDIN', payload: user });
         }
       );
     } catch (error) {
@@ -48,6 +42,15 @@ const Signin = () => {
   const signIntoGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  //logout
+  const logOut = async () => {
+    try {
+      await signOut(auth);
     } catch (err) {
       console.error(err);
     }
@@ -71,6 +74,8 @@ const Signin = () => {
       <button onClick={signInAccount}>sign in</button>
       <div className="pt-8">//google signin</div>
       <button onClick={signIntoGoogle}>sign into google</button>
+      <div className="pt-8">//logout</div>
+      <button onClick={logOut}>sign out</button>
     </div>
   );
 };
