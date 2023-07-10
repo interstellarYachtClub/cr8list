@@ -14,14 +14,6 @@ const Signin = () => {
   const [email, setEmail] = useState('');
   const [passwd, setPasswd] = useState('');
 
-  //email/pass
-  const createAccount = async () => {
-    try {
-      await createUserWithEmailAndPassword(auth, email, passwd);
-    } catch (err) {
-      console.error(err);
-    }
-  };
   const signInAccount = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, passwd).then(
@@ -58,7 +50,6 @@ const Signin = () => {
 
   return (
     <div className="flex flex-col space-y-4 text-center">
-      <div className="">//create account _ sign in</div>
       <input
         type="text"
         placeholder="email"
@@ -69,11 +60,13 @@ const Signin = () => {
         placeholder="password"
         onChange={(e) => setPasswd(e.target.value)}
       />
-      <button onClick={createAccount}>create account</button>
-      <p> or </p>
       <button onClick={signInAccount}>sign in</button>
       <div className="pt-8">//google signin</div>
       <button onClick={signIntoGoogle}>sign into google</button>
+      <p>... or ...</p>
+      <a href="/signup">
+        <button>create account</button>
+      </a>
       <div className="pt-8">//logout</div>
       <button onClick={logOut}>sign out</button>
     </div>

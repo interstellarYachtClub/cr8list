@@ -9,6 +9,7 @@ import {
   where,
 } from 'firebase/firestore';
 import Header from '../components/Header';
+import NewCratelist from '../components/NewCratelist';
 const Collection = () => {
   const [tracks, setTracks] = useState([]);
   const [playlists, setPlaylists] = useState([]);
@@ -59,32 +60,26 @@ const Collection = () => {
     <div>
       <main>
         <div>
-          <h2>Crate Library:</h2>
-          {playlists.map((playlist) => (
-            <div class="flex justify-center" key="playlistLibrary">
+          <h2>Crate Library</h2>
+          <div className="flex flex-col" key="playlistLibrary">
+            {playlists.map((playlist) => (
               <div>
                 <p>
                   {playlist.name} {playlist.isPublic ? '(public)' : '(private)'}
                 </p>
               </div>
-
-              {/* <ul>
-              {playlist.tracks.map((track) => (
-                <p>{track.id}</p>
-              ))}
-            </ul> */}
-            </div>
-          ))}
+            ))}
+          </div>
+          <h2>//New Cratelist</h2>
+          <NewCratelist />
         </div>
         <h2>Track Library</h2>
-        <div class="px-8">
+        <div className="flex flex-col" id="trackLibrary" key="trackLibrary">
           {tracks.map((track) => (
-            <div id="trackLibrary" key="trackLibrary">
-              <div>
-                <span>
-                  {track.name} - {track.artist}
-                </span>
-              </div>
+            <div>
+              <span>
+                {track.name} - {track.artist}
+              </span>
             </div>
           ))}
         </div>

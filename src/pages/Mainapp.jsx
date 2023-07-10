@@ -2,6 +2,7 @@ import { useContext, useReducer } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Signin from '../components/Signin';
+import Signup from '../components/Signup';
 import Collection from './Collection';
 import { AuthContext } from '../context/AuthContext';
 
@@ -24,6 +25,16 @@ const Mainapp = () => {
             <>
               <main className="max-w-sm mx-auto">
                 <Signin />
+              </main>
+            </>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <>
+              <main className="max-w-sm mx-auto">
+                <Signup />
               </main>
             </>
           }
