@@ -16,7 +16,7 @@ code {
     monospace;
 } */
 
-/*** H E A D E R***/
+/*** H E A D E R ***/
 header.App-header {
   @apply flex justify-between items-center;
 }
@@ -25,11 +25,23 @@ header.App-header div {
   @apply text-sm;
 }
 
+/*** B O D Y ***/
+#root {
+  width: 100vw;
+  height: 100vh;
+}
 body {
   font-family: 'Kanit', sans-serif;
   font-weight: 200;
   @apply text-xl;
+  /*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=7c85ad&c2=8ab0ff&gt=l&gd=dtl
+*/
+  background: #7c85ad;
+  background: linear-gradient(135deg, #7c85ad, #8ab0ff);
 }
+
 main {
   @apply mx-2 p-2;
 }
@@ -43,7 +55,7 @@ h2 {
 }
 
 input {
- @apply border-b pb-2;
+  @apply border-b pb-2;
 }
 
 #trackLibrary span {
@@ -51,5 +63,5 @@ input {
 }
 
 button {
-  @apply border border-black p-2;
+  @apply border border-black p-2 rounded;
 }

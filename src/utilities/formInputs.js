@@ -83,47 +83,53 @@ export const newCrateForm = [
   },
 ];
 
-export const manualNewTrack = [
+export const manualTrackForm = [
   {
     id: 'trackId',
     label: 'Track ID',
     type: 'text',
     placeholder: '',
+    showfield: false,
   },
   {
-    id: 'trackName',
+    id: 'name',
     label: 'Track',
     type: 'text',
-    placeholder: '',
+    placeholder: 'Track Name',
+    showfield: true,
   },
   {
-    id: 'artistName',
+    id: 'artist',
     label: 'Artist',
     type: 'text',
-    placeholder: '',
+    placeholder: 'Artist Name',
+    showfield: true,
   },
   {
     id: 'isIdId',
     label: 'WIP / ID-ID',
-    type: 'boolean',
-    placeholder: 'false',
+    type: 'checkbox',
+    showfield: true,
   },
   {
     id: 'added',
     label: 'Date Added',
     type: 'date',
     placeholder: '',
+    showfield: false,
   },
   {
     id: 'modified',
     label: 'Date Modified',
     type: 'date',
     placeholder: '',
+    showfield: false,
   },
   {
     id: 'collectionType',
     label: 'Type',
     type: 'text',
     placeholder: 'Track',
+    showfield: false,
   },
 ];

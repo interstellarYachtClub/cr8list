@@ -51,11 +51,13 @@ const Signin = () => {
   return (
     <div className="flex flex-col space-y-4 text-center">
       <input
+        className="rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-blue-950"
         type="text"
         placeholder="email"
         onChange={(e) => setEmail(e.target.value)}
       />
       <input
+        className="rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-blue-950"
         type="password"
         placeholder="password"
         onChange={(e) => setPasswd(e.target.value)}

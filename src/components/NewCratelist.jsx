@@ -12,13 +12,14 @@ const NewCratelist = () => {
   console.log(crateData);
 
   return (
-    <div className="newCratelistForm">
+    <div className="newCratelistForm flex flex-col justify-start accent-blue-950">
       {newCrateForm.map((input) => {
         if (input.showfield) {
           return (
             <div className={input.id} key={input.id}>
               <label>{input.label}</label>
               <input
+                className="rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-blue-950"
                 id={input.id}
                 type={input.type}
                 placeholder={input.placeholder}

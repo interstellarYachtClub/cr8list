@@ -10,6 +10,8 @@ import {
 } from 'firebase/firestore';
 import Header from '../components/Header';
 import NewCratelist from '../components/NewCratelist';
+import NewTrack from '../components/NewTrack';
+import TrackTable from '../components/TrackTable';
 const Collection = () => {
   const [tracks, setTracks] = useState([]);
   const [playlists, setPlaylists] = useState([]);
@@ -75,14 +77,17 @@ const Collection = () => {
         </div>
         <h2>Track Library</h2>
         <div className="flex flex-col" id="trackLibrary" key="trackLibrary">
-          {tracks.map((track) => (
+          <TrackTable tracks={tracks} />
+          {/* {tracks.map((track) => (
             <div>
               <span>
                 {track.name} - {track.artist}
               </span>
             </div>
-          ))}
+          ))} */}
         </div>
+        <h2>//Add Track Manually</h2>
+        <NewTrack />
       </main>
     </div>
   );

@@ -27,13 +27,14 @@ const Signup = () => {
   console.log(newUser);
 
   return (
-    <div className="newCratelistForm">
+    <div className="newCratelistForm ">
       {newUserForm.map((input) => {
         if (input.showfield) {
           return (
             <div className={input.id} key={input.id}>
               <label>{input.label}</label>
               <input
+                className="rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-blue-950"
                 required
                 id={input.id}
                 type={input.type}
