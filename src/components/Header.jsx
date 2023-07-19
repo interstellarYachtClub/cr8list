@@ -5,6 +5,9 @@ const Header = () => {
         <h1>CrateList</h1>
       </a>
       <div className="flex items-center italic">Dig into your playlists.</div>
+      <div>
+        <a href="/about">About</a>
+      </div>
       <div>User</div>
     </header>
   );

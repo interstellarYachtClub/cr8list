@@ -3,6 +3,7 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Signin from '../components/Signin';
 import Signup from '../components/Signup';
+import About from './About';
 import Collection from './Collection';
 import { AuthContext } from '../context/AuthContext';
 
@@ -35,6 +36,16 @@ const Mainapp = () => {
             <>
               <main className="max-w-sm mx-auto">
                 <Signup />
+              </main>
+            </>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <>
+              <main className="max-w-sm mx-auto">
+                <About />
               </main>
             </>
           }
