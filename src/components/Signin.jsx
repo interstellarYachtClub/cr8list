@@ -21,6 +21,7 @@ const Signin = () => {
           // Signed in
           const user = userCredential.user;
           dispatch({ type: 'SIGNEDIN', payload: user });
+          console.log(AuthContext._currentValue);
         }
       );
     } catch (error) {
@@ -31,6 +32,7 @@ const Signin = () => {
   };
 
   //google
+  /*
   const signIntoGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
@@ -38,6 +40,7 @@ const Signin = () => {
       console.error(err);
     }
   };
+  */
 
   //logout
   const logOut = async () => {
@@ -63,8 +66,8 @@ const Signin = () => {
         onChange={(e) => setPasswd(e.target.value)}
       />
       <button onClick={signInAccount}>sign in</button>
-      <div className="pt-8">//google signin</div>
-      <button onClick={signIntoGoogle}>sign into google</button>
+      {/* <div className="pt-8">//google signin</div>
+      <button onClick={signIntoGoogle}>sign into google</button> */}
       <p>... or ...</p>
       <a href="/signup">
         <button>create account</button>
