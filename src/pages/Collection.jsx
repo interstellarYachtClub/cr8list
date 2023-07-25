@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 import { auth, googleProvider, db } from '../auth/firebaseauth';
 import {
+  getDoc,
   getDocs,
   collection,
   addDoc,
@@ -15,32 +17,60 @@ import TrackTable from '../components/TrackTable';
 const Collection = () => {
   const [tracks, setTracks] = useState([]);
   const [playlists, setPlaylists] = useState([]);
-  const playlistsCollectionRef = collection(
-    db,
-    '/marcfifemusic/9LaUV6CjV599KmbDIDzT/crates'
-  );
+  // const playlistsCollectionRef = doc(
+  //   db,
+  //   `/${AuthContext._currentValue.currentUser.email}${AuthContext._currentValue.currentUser.uid}/crates/children`
+  // );
   const tracksCollectionRef = collection(
     db,
     '/marcfifemusic/9LaUV6CjV599KmbDIDzT/tracks'
   );
 
+  //console.log(AuthContext._currentValue.currentUser);
+
   useEffect(() => {
     const getPlaylists = async () => {
+      console.log('...getting playlist');
       //data
       //setstate
       try {
+        const queryAllCrates = await getDocs(
+          collection(
+            db,
+            `${AuthContext._currentValue.currentUser.email}${AuthContext._currentValue.currentUser.uid}/crates/children`
+          )
+        );
+        let collectionCrates = [];
+        queryAllCrates.forEach((crate) => {
+          console.log(crate.id, '=>', crate.data());
+          collectionCrates.push(crate);
+        });
+        setPlaylists(collectionCrates);
+
+        // const docSnap = await getDoc(playlistsCollectionRef);
+        // if (docSnap.exists()) {
+        //   console.log('Document data:', docSnap.data());
+        // } else {
+        //   // docSnap.data() will be undefined in this case
+        //   console.log('No such document!');
+        // }
+
+        /*
         const data = await getDocs(playlistsCollectionRef);
         const filtereddata = data.docs.map((doc) => ({
           ...doc.data(),
-          id: doc.id,
+          name: doc.name,
         }));
+        console.log(filtereddata);
 
         setPlaylists(filtereddata);
+        */
       } catch (err) {
         console.error(err);
       }
     };
     getPlaylists();
+
     const getTracks = async () => {
       //data
       //setstate
@@ -67,7 +97,7 @@ const Collection = () => {
             {playlists.map((playlist) => (
               <div>
                 <p>
-                  {playlist.name} {playlist.isPublic ? '(public)' : '(private)'}
+                  {playlist.id} {playlist.isPublic ? '(public)' : '(private)'}
                 </p>
               </div>
             ))}

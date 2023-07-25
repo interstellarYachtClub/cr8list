@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { newCrateForm } from '../utilities/formInputs';
+import { doc, setDoc } from 'firebase/firestore';
+import { db } from '../auth/firebaseauth';
+import { AuthContext } from '../context/AuthContext';
 
 const NewCratelist = () => {
   const [crateData, setCrateData] = useState({});
@@ -8,8 +11,28 @@ const NewCratelist = () => {
     const id = e.target.id;
     const value = e.target.value;
     setCrateData({ ...crateData, [id]: value });
+    //console.log('Document written with ID: ', docRef.id);
   };
   console.log(crateData);
+
+  const handleAddCratelist = async () => {
+    console.log('thing!');
+    console.log(crateData.listName);
+    console.log(
+      `${AuthContext._currentValue.currentUser.email}${AuthContext._currentValue.currentUser.uid}`
+    );
+
+    const docRef = doc(
+      db,
+      `${AuthContext._currentValue.currentUser.email}${AuthContext._currentValue.currentUser.uid}/crates/children/`,
+      crateData.listName
+    );
+
+    await setDoc(docRef, {
+      isPublic: false,
+      tracklist: [],
+    });
+  };
 
   return (
     <div className="newCratelistForm flex flex-col justify-start accent-blue-950">
@@ -29,7 +52,7 @@ const NewCratelist = () => {
           );
         }
       })}
-      <button>Make Cratelist</button>
+      <button onClick={handleAddCratelist}>Make Cratelist</button>
 
       {/* <input
         type="text"

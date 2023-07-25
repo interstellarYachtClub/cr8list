@@ -3,7 +3,7 @@ import { newUserForm } from '../utilities/formInputs';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../auth/firebaseauth';
 import { AuthContext } from '../context/AuthContext';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, doc, setDoc } from 'firebase/firestore';
 import { db } from '../auth/firebaseauth';
 
 const Signup = () => {
@@ -26,14 +26,18 @@ const Signup = () => {
       console.error(err);
     }
     console.log('//context');
-    console.log(AuthContext._currentValue.currentUser.uid);
+    console.log(AuthContext._currentValue.currentUser);
     // Add a new document with a generated id.
-    const docRef = await addDoc(
-      collection(db, newUser.email + AuthContext._currentValue.currentUser.uid),
-      {
-        name: 'My First Cratelist',
-      }
+    const docRef = doc(
+      db,
+      `${newUser.email}${AuthContext._currentValue.currentUser.uid}/crates/children/`,
+      'My fave list'
     );
+
+    await setDoc(docRef, {
+      isPublic: false,
+      tracklist: [],
+    });
     console.log('Document written with ID: ', docRef.id);
   };
 
