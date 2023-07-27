@@ -1,4 +1,3 @@
-import { Authform } from './components/Authform';
 import Mainapp from './pages/Mainapp';
 
 // const firebaseApp = initializeApp(firebaseConfig);

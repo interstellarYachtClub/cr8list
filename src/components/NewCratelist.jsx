@@ -13,7 +13,7 @@ const NewCratelist = () => {
     setCrateData({ ...crateData, [id]: value });
     //console.log('Document written with ID: ', docRef.id);
   };
-  console.log(crateData);
+  //console.log(crateData);
 
   const handleAddCratelist = async () => {
     // console.log('thing!');

@@ -16,7 +16,7 @@ import NewTrack from '../components/NewTrack';
 import TrackTable from '../components/TrackTable';
 const Collection = () => {
   const [tracks, setTracks] = useState([]);
-  const [playlists, setPlaylists] = useState([]);
+  const [cratelists, setCratelists] = useState([]);
   // const playlistsCollectionRef = doc(
   //   db,
   //   `/${AuthContext._currentValue.currentUser.email}${AuthContext._currentValue.currentUser.uid}/crates/children`
@@ -30,8 +30,8 @@ const Collection = () => {
   //console.log(AuthContext._currentValue.currentUser);
 
   useEffect(() => {
-    const getPlaylists = async () => {
-      console.log('...getting playlist');
+    const getCratelists = async () => {
+      //console.log('...getting playlist');
       //data
       //setstate
       try {
@@ -43,10 +43,10 @@ const Collection = () => {
         );
         let collectionCrates = [];
         queryAllCrates.forEach((crate) => {
-          console.log(crate.id, '=>', crate.data());
+          //console.log(crate.id, '=>', crate.data());
           collectionCrates.push(crate);
         });
-        setPlaylists(collectionCrates);
+        setCratelists(collectionCrates);
 
         // const docSnap = await getDoc(playlistsCollectionRef);
         // if (docSnap.exists()) {
@@ -70,7 +70,7 @@ const Collection = () => {
         console.error(err);
       }
     };
-    getPlaylists();
+    getCratelists();
 
     //
 
@@ -99,40 +99,33 @@ const Collection = () => {
   }, []);
   return (
     <div>
-      <main>
-        <div>
-          <h2>Crate Library</h2>
-          <div className="flex flex-col" key="playlistLibrary">
-            {playlists.map((playlist) => {
-              let playlistdata = playlist.data();
-              return (
-                <div key={playlist.id}>
-                  <p>
-                    {playlist.data().name}
-                    {' - '}
-                    {playlist.data() ? '(public)' : '(private)'}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-          <h2>//New Cratelist</h2>
-          <NewCratelist />
+      <div>
+        <h2>Crate Library</h2>
+        <div className="flex flex-col" key="playlistLibrary">
+          {cratelists.map((cratelist) => (
+            <a href={'/crate/' + cratelist.id + '/edit'} key={cratelist.id}>
+              {cratelist.data().name}
+              {' - '}
+              {cratelist.data().isPublic ? '(public)' : '(private)'}
+            </a>
+          ))}
         </div>
-        <h2>Track Library</h2>
-        <div className="flex flex-col" id="trackLibrary" key="trackLibrary">
-          <TrackTable tracks={tracks} />
-          {/* {tracks.map((track) => (
+        <h2>//New Cratelist</h2>
+        <NewCratelist />
+      </div>
+      <h2>Track Library</h2>
+      <div className="flex flex-col" id="trackLibrary" key="trackLibrary">
+        <TrackTable tracks={tracks} />
+        {/* {tracks.map((track) => (
             <div>
               <span>
                 {track.name} - {track.artist}
               </span>
             </div>
           ))} */}
-        </div>
-        <h2>//Add Track Manually</h2>
-        <NewTrack />
-      </main>
+      </div>
+      <h2>//Add Track Manually</h2>
+      <NewTrack />
     </div>
   );
 };

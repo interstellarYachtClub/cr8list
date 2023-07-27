@@ -5,6 +5,7 @@ import Signin from '../components/Signin';
 import Signup from '../components/Signup';
 import About from './About';
 import Collection from './Collection';
+import EditCratelist from './EditCratelist';
 import { AuthContext } from '../context/AuthContext';
 
 const Mainapp = () => {
@@ -56,6 +57,16 @@ const Mainapp = () => {
             <RequireAuth>
               <main className="max-w-sm mx-auto">
                 <Collection />
+              </main>
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/crate/:crateid/edit"
+          element={
+            <RequireAuth>
+              <main className="max-w-sm mx-auto">
+                <EditCratelist />
               </main>
             </RequireAuth>
           }
