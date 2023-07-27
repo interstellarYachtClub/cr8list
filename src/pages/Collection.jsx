@@ -21,10 +21,11 @@ const Collection = () => {
   //   db,
   //   `/${AuthContext._currentValue.currentUser.email}${AuthContext._currentValue.currentUser.uid}/crates/children`
   // );
-  const tracksCollectionRef = collection(
-    db,
-    '/marcfifemusic/9LaUV6CjV599KmbDIDzT/tracks'
-  );
+
+  // const tracksCollectionRef = collection(
+  //   db,
+  //   '/marcfifemusic/9LaUV6CjV599KmbDIDzT/tracks'
+  // );
 
   //console.log(AuthContext._currentValue.currentUser);
 
@@ -71,17 +72,25 @@ const Collection = () => {
     };
     getPlaylists();
 
+    //
+
+    //
+
     const getTracks = async () => {
       //data
       //setstate
       try {
-        const data = await getDocs(tracksCollectionRef);
-        const filtereddata = data.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }));
-
-        setTracks(filtereddata);
+        const queryAllTracks = await getDocs(
+          collection(
+            db,
+            `${AuthContext._currentValue.currentUser.email}${AuthContext._currentValue.currentUser.uid}/tracks/children`
+          )
+        );
+        let collectionTracks = [];
+        queryAllTracks.forEach((track) => {
+          collectionTracks.push(track.data());
+        });
+        setTracks(collectionTracks);
       } catch (err) {
         console.error(err);
       }
@@ -94,13 +103,18 @@ const Collection = () => {
         <div>
           <h2>Crate Library</h2>
           <div className="flex flex-col" key="playlistLibrary">
-            {playlists.map((playlist) => (
-              <div>
-                <p>
-                  {playlist.id} {playlist.isPublic ? '(public)' : '(private)'}
-                </p>
-              </div>
-            ))}
+            {playlists.map((playlist) => {
+              let playlistdata = playlist.data();
+              return (
+                <div key={playlist.id}>
+                  <p>
+                    {playlist.data().name}
+                    {' - '}
+                    {playlist.data() ? '(public)' : '(private)'}
+                  </p>
+                </div>
+              );
+            })}
           </div>
           <h2>//New Cratelist</h2>
           <NewCratelist />

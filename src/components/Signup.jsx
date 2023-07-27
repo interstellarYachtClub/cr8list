@@ -3,7 +3,7 @@ import { newUserForm } from '../utilities/formInputs';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../auth/firebaseauth';
 import { AuthContext } from '../context/AuthContext';
-import { collection, doc, setDoc } from 'firebase/firestore';
+import { collection, doc, addDoc } from 'firebase/firestore';
 import { db } from '../auth/firebaseauth';
 
 const Signup = () => {
@@ -15,29 +15,49 @@ const Signup = () => {
     try {
       await createUserWithEmailAndPassword(
         auth,
+        newUser.username,
         newUser.email,
         newUser.password
       ).then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        console.log(user);
         dispatch({ type: 'SIGNEDIN', payload: user });
       });
     } catch (err) {
       console.error(err);
     }
     console.log('//context');
-    console.log(AuthContext._currentValue.currentUser);
+    console.log(AuthContext._currentValue);
     // Add a new document with a generated id.
-    const docRef = doc(
-      db,
-      `${newUser.email}${AuthContext._currentValue.currentUser.uid}/crates/children/`,
-      'My fave list'
-    );
 
-    await setDoc(docRef, {
-      isPublic: false,
-      tracklist: [],
-    });
+    //using addDoc
+    const docRef = await addDoc(
+      collection(
+        db,
+        `${AuthContext._currentValue.currentUser.email}${AuthContext._currentValue.currentUser.uid}/crates/children/`
+      ),
+      {
+        name: 'My first cratelist',
+        created: new Date(),
+        tracks: [],
+        isPublic: false,
+      }
+    );
+    console.log('Document written with ID: ', docRef.id);
+
+    //using setDoc
+    // const docRef = doc(
+    //   db,
+    //   `${newUser.username}${AuthContext._currentValue.currentUser.uid}/crates/children/`,
+    //   'My fave list'
+    // );
+
+    // await setDoc(docRef, {
+    //   isPublic: false,
+    //   tracklist: [],
+    // });
+
     console.log('Document written with ID: ', docRef.id);
   };
 
@@ -46,6 +66,7 @@ const Signup = () => {
     const value = e.target.value;
     setNewUser({ ...newUser, [id]: value });
   };
+  console.log('//consolelognewUser');
   console.log(newUser);
 
   return (

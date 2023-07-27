@@ -1,15 +1,33 @@
 import { useState } from 'react';
 import { manualTrackForm } from '../utilities/formInputs';
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from '../auth/firebaseauth';
+import { AuthContext } from '../context/AuthContext';
 
 const NewTrack = () => {
   const [trackData, setTrackData] = useState({});
 
-  const handleNewTrack = (e) => {
+  const handleTrackInput = (e) => {
     const id = e.target.id;
     const value = e.target.value;
     setTrackData({ ...trackData, [id]: value });
   };
   console.log(trackData);
+
+  const handleAddTrack = async () => {
+    const docRef = await addDoc(
+      collection(
+        db,
+        `${AuthContext._currentValue.currentUser.email}${AuthContext._currentValue.currentUser.uid}/tracks/children/`
+      ),
+      {
+        name: trackData.name,
+        artist: trackData.artist,
+        addedToCollection: new Date(),
+        isIdId: trackData.isIdId === 'on' ? true : false,
+      }
+    );
+  };
 
   return (
     <div className="newTrackForm accent-blue-950">
@@ -23,13 +41,13 @@ const NewTrack = () => {
                 id={input.id}
                 type={input.type}
                 placeholder={input.placeholder}
-                onChange={handleNewTrack}
+                onChange={handleTrackInput}
               />
             </div>
           );
         }
       })}
-      <button>Add Track</button>
+      <button onClick={handleAddTrack}>Add Track</button>
     </div>
   );
 };
