@@ -35,7 +35,7 @@ const Signup = () => {
     const docRef = await addDoc(
       collection(
         db,
-        `${AuthContext._currentValue.currentUser.email}${AuthContext._currentValue.currentUser.uid}/crates/children/`
+        `${AuthContext._currentValue.currentUser.uid}/crates/children/`
       ),
       {
         name: 'My first cratelist',

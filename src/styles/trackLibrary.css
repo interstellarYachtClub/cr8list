@@ -1,0 +1,7 @@
+#trackLibrary {
+  @apply w-full -m-[8px] text-base max-w-[100vw];
+}
+
+#trackLibrary td {
+  @apply whitespace-nowrap overflow-x-scroll max-w-[45vw];
+}

@@ -16,6 +16,7 @@ code {
     monospace;
 } */
 
+@import './styles/trackLibrary.css';
 /*** H E A D E R ***/
 header.App-header {
   @apply flex justify-between items-center;
@@ -28,7 +29,8 @@ header.App-header div {
 /*** B O D Y ***/
 #root {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
 }
 body {
   font-family: 'Kanit', sans-serif;
@@ -43,7 +45,7 @@ body {
 }
 
 main {
-  @apply mx-2 p-2;
+  @apply mx-2 p-2 flex flex-col items-center;
 }
 
 h1 {
@@ -52,6 +54,10 @@ h1 {
 
 h2 {
   @apply text-3xl mb-2 mt-12;
+}
+
+h2 strong {
+  @apply text-xl mb-2 mt-12 text-orange-600;
 }
 
 p {

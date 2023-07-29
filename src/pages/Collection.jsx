@@ -38,7 +38,7 @@ const Collection = () => {
         const queryAllCrates = await getDocs(
           collection(
             db,
-            `${AuthContext._currentValue.currentUser.email}${AuthContext._currentValue.currentUser.uid}/crates/children`
+            `${AuthContext._currentValue.currentUser.uid}/crates/children`
           )
         );
         let collectionCrates = [];
@@ -83,7 +83,7 @@ const Collection = () => {
         const queryAllTracks = await getDocs(
           collection(
             db,
-            `${AuthContext._currentValue.currentUser.email}${AuthContext._currentValue.currentUser.uid}/tracks/children`
+            `${AuthContext._currentValue.currentUser.uid}/tracks/children`
           )
         );
         let collectionTracks = [];

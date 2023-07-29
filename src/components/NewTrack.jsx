@@ -18,13 +18,17 @@ const NewTrack = () => {
     const docRef = await addDoc(
       collection(
         db,
-        `${AuthContext._currentValue.currentUser.email}${AuthContext._currentValue.currentUser.uid}/tracks/children/`
+        `${AuthContext._currentValue.currentUser.uid}/tracks/children/`
       ),
       {
         name: trackData.name,
         artist: trackData.artist,
         addedToCollection: new Date(),
         isIdId: trackData.isIdId === 'on' ? true : false,
+        release: trackData.release,
+        bpm: trackData.bpm,
+        time: trackData.time,
+        key: trackData.key,
       }
     );
   };
