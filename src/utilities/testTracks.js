@@ -1369,6 +1369,7 @@ export const demoDb = [
     bitrate: 1411,
     samplerate: 44100,
     key: 'D#min / 2A',
+    year: 2010,
     albumcover: '',
   },
   {
@@ -1393,6 +1394,7 @@ export const demoDb = [
     bpm: 130,
     bitrate: 1411,
     samplerate: 44100,
+    year: 2012,
   },
   {
     title: 'Dancing Sea (The Madison Remix)',
@@ -1405,6 +1407,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Fmin / 4A',
     albumcover: '',
+    year: 2012,
   },
   {
     title: 'Death Of Me (Original Mix)',
@@ -1417,6 +1420,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Emin / 9A',
     albumcover: '',
+    year: 2012,
   },
   {
     title: 'Everything About You (Original Mix)',
@@ -1428,6 +1432,9 @@ export const demoDb = [
     bitrate: 1411,
     samplerate: 44100,
     key: 'G#min / 1A',
+    year: 2012,
+  },
+  {
     title: 'In And Out of Phase (Norin & Rad Remix)',
     artist: 'Andrew Bayer & Matt Lange feat. Kerry Leva',
     album: 'In And Out Of Phase [ANJ233D]',
@@ -1439,6 +1446,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Gmin / 6A',
     albumcover: '',
+    year: 2012,
   },
   {
     title: 'Inseparable (Club Mix)',
@@ -1451,6 +1459,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Amin / 8A',
     albumcover: '',
+    year: 2012,
   },
   {
     title: 'Language (Original Mix)',
@@ -1463,6 +1472,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Amaj / 11B',
     albumcover: '',
+    year: 2012,
   },
   {
     title: 'Long Distance (Original Mix)',
@@ -1475,6 +1485,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Amin / 8A',
     albumcover: '',
+    year: 2008,
   },
   {
     title: 'Must Be The Love (Original Mix)',
@@ -1487,6 +1498,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'G#min / 1A',
     albumcover: '',
+    year: 2012,
   },
   {
     title: 'Need to Feel Loved (Adam K & Soha Vocal Mix)',
@@ -1499,6 +1511,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Gmin / 6A',
     albumcover: '',
+    year: 2009,
   },
   {
     title: 'Never Let Me Go (Beat Service Remix)',
@@ -1511,6 +1524,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Amin / 8A',
     albumcover: '',
+    year: 2012,
   },
   {
     title: 'Never Let Me Go (Luigi Lusini Remix)',
@@ -1523,6 +1537,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'G#min / 1A',
     albumcover: '',
+    year: 2012,
   },
   {
     title: 'No Turning Back (Original Mix)',
@@ -1547,6 +1562,9 @@ export const demoDb = [
     bitrate: 1411,
     samplerate: 44100,
     key: 'C#min / 12A',
+    year: 2012,
+  },
+  {
     title: 'Ode To The Wind (Juventa Remix)',
     artist: 'Speed Limits',
     album: 'Ode To The Wind',
@@ -1557,6 +1575,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Gmin / 6A',
     albumcover: '',
+    year: 2013,
   },
   {
     title: 'Phoenix From The Flames (Club Mix)',
@@ -1582,6 +1601,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'C#min / 12A',
     albumcover: '',
+    year: 2011,
   },
   {
     title: 'Run (Original Mix)',
@@ -1594,6 +1614,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'A#min / 3A',
     albumcover: '',
+    year: 2014,
   },
   {
     title: 'Satellite (ilan Bluestone Remix)',
@@ -1606,6 +1627,8 @@ export const demoDb = [
     bitrate: 1411,
     samplerate: 44100,
     key: 'Amin / 8A',
+  },
+  {
     title: 'Sun & Moon (Dennis Sheperd Remix)',
     artist: 'Above & Beyond feat. Richard Bedford',
     album: 'Sun & Moon Pt. 1 [ANJ196D]',
@@ -1629,6 +1652,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Cmin / 5A',
     albumcover: '',
+    year: 2012,
   },
   {
     title: 'The Red Room (Original Mix)',
@@ -1641,6 +1665,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Fmin / 4A',
     albumcover: '',
+    year: 2012,
   },
   {
     title: 'Thing Called Love (Mat Zo Remix)',
@@ -1666,6 +1691,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Gmaj / 9B',
     albumcover: '',
+    year: 2009,
   },
   {
     title: 'Tonight (Above & Beyond Remix)',
@@ -1691,6 +1717,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'C#min / 12A',
     albumcover: '',
+    year: 2012,
   },
   {
     title: 'Under The Same Sky (Beat Service Remix)',
@@ -1703,6 +1730,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'C#min / 12A',
     albumcover: '',
+    year: 2012,
   },
   {
     title: 'When You Love Someone (Club Mix)',
@@ -1715,6 +1743,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Bmin / 10A',
     albumcover: '',
+    year: 2013,
   },
   {
     title: "Helsinki Scorchin' (Michael Cassette Remix)",
@@ -3014,6 +3043,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Amin / 8A',
     albumcover: '',
+    year: 2017,
   },
   {
     title: 'Love Without You (Original Mix)',
@@ -3026,6 +3056,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'F#min / 11A',
     albumcover: '',
+    year: 2017,
   },
   {
     title: 'Razorfish (Above & Beyond Progressive Mix)',
@@ -3051,6 +3082,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'F#min / 11A',
     albumcover: '',
+    year: 2007,
   },
   {
     title: 'Buzz (Buzztalk Mix)',
@@ -3150,6 +3182,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'G#maj / 4B',
     albumcover: '',
+    year: 2002,
   },
   {
     title: 'Home (Genix Remix)',
@@ -3162,6 +3195,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'F#maj / 2B',
     albumcover: '',
+    year: 2012,
   },
   {
     title: 'Greensight (Extended Mix)[mp3]',
@@ -3355,17 +3389,6 @@ export const demoDb = [
     albumcover: '',
   },
   {
-    title: 'Wherever You Are (Extended Mix)[mp3]',
-    artist: 'Ferry Corsten feat. HALIENE',
-    album: 'Wherever You Are',
-    time: 450768,
-    year: 2017,
-    bpm: 130,
-    format: 'mp3',
-    key: 'Dmin / 7A',
-    albumcover: '',
-  },
-  {
     title: 'AR (Extended Mix)',
     artist: 'Cosmic Gate & Markus Schulz',
     album: 'AR',
@@ -3376,6 +3399,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Amin / 8A',
     albumcover: '',
+    year: 2017,
   },
   {
     title: 'Wherever You Are (Extended Mix)',
@@ -3388,6 +3412,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Dmin / 7A',
     albumcover: '',
+    year: 2017,
   },
   {
     title: 'Sandstorm (Original Mix)[mp3]',
@@ -3397,6 +3422,7 @@ export const demoDb = [
     format: 'mp3',
     key: 'Emin / 9A',
     albumcover: '',
+    year: 2012,
   },
   {
     title: 'Talladega (Original Mix)',
@@ -4072,6 +4098,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Dmaj / 10B',
     albumcover: '',
+    year: 2018,
   },
   {
     title: 'Come Alive (Boom Jinx Deep Vocal Mix)',
@@ -4084,6 +4111,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'F#min / 11A',
     albumcover: '',
+    year: 2017,
   },
   {
     title: 'Come Alive (Original Mix)',
@@ -4095,17 +4123,20 @@ export const demoDb = [
     bitrate: 1411,
     samplerate: 44100,
     key: 'F#min / 11A',
+    year: 2017,
+  },
+  {
     title: 'Faxing Berlin (Original Mix)',
     artist: 'deadmau5',
     album: 'Faxing Berlin x4',
     format: 'aiff',
     time: 527000,
-    year: 2017,
     bpm: 128,
     bitrate: 1411,
     samplerate: 44100,
     key: 'Dmin / 7A',
     albumcover: '',
+    year: 2006,
   },
   {
     title: 'Promises (Soundprank Remix)',
@@ -4157,6 +4188,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'G#min / 1A',
     albumcover: '',
+    year: 2018,
   },
   {
     title: 'Nothing Without You (Tinlicker Rework)',
@@ -4169,6 +4201,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Dmin / 7A',
     albumcover: '',
+    year: 2018,
   },
   {
     title: 'January Embers (Extended Mix)',
@@ -4181,6 +4214,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Cmin / 5A',
     albumcover: '',
+    year: 2018,
   },
   {
     title: 'Ground Control (Original Mix)',
@@ -4193,6 +4227,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'D#min / 2A',
     albumcover: '',
+    year: 2018,
   },
   {
     title: 'Headspace (Original Mix)',
@@ -4205,6 +4240,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Amin / 8A',
     albumcover: '',
+    year: 2018,
   },
   {
     title: 'Endorphin (Original Mix)',
@@ -4217,6 +4253,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Fmin / 4A',
     albumcover: '',
+    year: 2016,
   },
   {
     title: 'Long Way From Home (Extended Mix)',
@@ -4229,9 +4266,10 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Cmin / 5A',
     albumcover: '',
+    year: 2018,
   },
   {
-    title: 'Global Illumination (Martin Roth OMFG Remix)',
+    title: 'tGlobal Illumination (Martin Roth OMFG Remix)',
     artist: 'Liquid Soul',
     album: 'Cocktails',
     format: 'wav',
@@ -4241,6 +4279,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Gmin / 6A',
     albumcover: '',
+    year: 2009,
   },
   {
     title: 'Scars (Maor Levi Extended Mix)',
@@ -4279,6 +4318,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'A#maj / 6B',
     albumcover: '',
+    year: 2019,
   },
   {
     title: 'Flying By Candlelight (Above & Beyond Extended Club Mix)[mp3]',
@@ -4387,6 +4427,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Bmin / 10A',
     albumcover: '',
+    year: 2019,
   },
   {
     title: 'Come Home (Original Mix)',
@@ -4462,6 +4503,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'F#min / 11A',
     albumcover: '',
+    year: 2017,
   },
   {
     title: 'Anything (Extended Mix)',
@@ -4487,6 +4529,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Cmin / 5A',
     albumcover: '',
+    year: 2019,
   },
   {
     title: 'Cycles (Extended Mix)[mp3]',
@@ -4610,6 +4653,7 @@ export const demoDb = [
     format: 'mp3',
     key: 'Dmin / 7A',
     albumcover: '',
+    year: 2019,
   },
   {
     title: 'Freefall (Extended Mix)[mp3]',
@@ -4761,6 +4805,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'F#min / 11A',
     albumcover: '',
+    year: 2019,
   },
   {
     title: 'One Last Try (Club Mix)',
@@ -4938,16 +4983,7 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Amin / 8A',
     albumcover: '',
-  },
-  {
-    title: "True Feelin' (Extended Mix)[mp3]",
-    artist: 'Andrew Bayer',
-    album: "True Feelin' [ANJ567D]",
-    time: 390191,
-    bpm: 128,
-    format: 'mp3',
-    key: 'Amin / 8A',
-    albumcover: '',
+    year: 2019,
   },
   {
     title: 'The Longest Road On Earth (Extended Mix)',
@@ -4997,6 +5033,8 @@ export const demoDb = [
     bpm: 128,
     format: 'mp3',
     key: 'Dmin / 7A',
+  },
+  {
     title: 'Replicate [mp3]',
     artist: 'i_o',
     album: 'ACID 444',
