@@ -3,5 +3,5 @@
 }
 
 #trackLibrary td {
-  @apply whitespace-nowrap overflow-x-scroll max-w-[45vw];
+  @apply whitespace-nowrap max-w-[45vw];
 }

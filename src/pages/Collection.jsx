@@ -14,6 +14,7 @@ import Header from '../components/Header';
 import NewCratelist from '../components/NewCratelist';
 import NewTrack from '../components/NewTrack';
 import TrackTable from '../components/TrackTable';
+import ImportTestTracks from '../components/ImportTestTracks';
 const Collection = () => {
   const [tracks, setTracks] = useState([]);
   const [cratelists, setCratelists] = useState([]);
@@ -126,6 +127,10 @@ const Collection = () => {
       </div>
       <h2>//Add Track Manually</h2>
       <NewTrack />
+      <div>
+        <h2>//Tracks Import from json</h2>
+        <ImportTestTracks />
+      </div>
     </div>
   );
 };

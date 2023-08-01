@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { newUserForm } from '../utilities/formInputs';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../auth/firebaseauth';
+import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { auth, googleProvider } from '../auth/firebaseauth';
 import { AuthContext } from '../context/AuthContext';
 import { collection, doc, addDoc } from 'firebase/firestore';
 import { db } from '../auth/firebaseauth';
@@ -61,6 +61,15 @@ const Signup = () => {
     console.log('Document written with ID: ', docRef.id);
   };
 
+  //google
+  const signIntoGoogle = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const handleSignup = (e) => {
     const id = e.target.id;
     const value = e.target.value;
@@ -89,6 +98,11 @@ const Signup = () => {
         }
       })}
       <button onClick={createAccount}>create account</button>
+      <p>...or...</p>
+      <div>
+        <div>//google signin</div>
+        <button onClick={signIntoGoogle}>sign into google</button>
+      </div>
     </div>
   );
 };
