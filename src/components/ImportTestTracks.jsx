@@ -23,8 +23,6 @@ const ImportTestTracks = () => {
         key: track.key,
         bpm: track.bpm,
         format: track.format,
-        bitrate: track.bitrate,
-        samplerate: track.samplerate,
       }
     );
   };

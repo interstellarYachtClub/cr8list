@@ -791,6 +791,8 @@ export const demoDb = [
     bitrate: 1411,
     samplerate: 44100,
     key: 'Emin / 9A',
+  },
+  {
     title: 'Secret (Andrew Bayer Remix)',
     artist: 'Above & Beyond pres. OceanLab',
     album: 'Sirens Of The Sea (Remixed)[ANJCD013D]',
@@ -827,6 +829,8 @@ export const demoDb = [
     bitrate: 1411,
     samplerate: 44100,
     key: 'Gmin / 6A',
+  },
+  {
     title: 'Big Ben (Original Mix)',
     artist: 'ilan Bluestone',
     album: 'Big Ben EP [ANJ302D]',
@@ -1446,7 +1450,6 @@ export const demoDb = [
     samplerate: 44100,
     key: 'Gmin / 6A',
     albumcover: '',
-    year: 2012,
   },
   {
     title: 'Inseparable (Club Mix)',
