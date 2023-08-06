@@ -114,6 +114,12 @@ const Collection = () => {
         <h2>//New Cratelist</h2>
         <NewCratelist />
       </div>
+      <h2>//Add Track Manually</h2>
+      <NewTrack />
+      <div>
+        <h2>//Tracks Import from json</h2>
+        <ImportTestTracks />
+      </div>
       <h2>Track Library</h2>
       <div className="flex flex-col" id="trackLibrary" key="trackLibrary">
         <TrackTable tracks={tracks} />
@@ -124,12 +130,6 @@ const Collection = () => {
               </span>
             </div>
           ))} */}
-      </div>
-      <h2>//Add Track Manually</h2>
-      <NewTrack />
-      <div>
-        <h2>//Tracks Import from json</h2>
-        <ImportTestTracks />
       </div>
     </div>
   );

@@ -83,6 +83,36 @@ export const newCrateForm = [
   },
 ];
 
+export const newTrackSearch = [
+  // {
+  //   id: 'tracksearch',
+  //   label: 'Track Search',
+  //   type: 'text',
+  //   placeholder: "Track and/or Artist or separated by '&&' (ampersand)",
+  //   showfield: true,
+  // },
+  {
+    id: 'tracksearch',
+    label: 'Track Name',
+    type: 'text',
+    placeholder: 'Enter a track name...',
+    showfield: true,
+  },
+  {
+    id: 'artistsearch',
+    label: 'Artist Name',
+    type: 'text',
+    placeholder: 'Enter an artist name...',
+    showfield: true,
+  },
+  {
+    id: 'extendedmixdefault',
+    label: 'Check for Extended Mix by default',
+    type: 'checkbox',
+    showfield: true,
+  },
+];
+
 export const manualTrackForm = [
   {
     id: 'trackId',

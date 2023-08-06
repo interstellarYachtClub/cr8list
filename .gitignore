@@ -3,6 +3,8 @@ src/config
 
 #ignore files
 firebaseauth.json
+deezerauth.txt
+spotifyauth.txt
 resources.txt
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 

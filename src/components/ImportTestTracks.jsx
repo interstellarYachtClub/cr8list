@@ -8,22 +8,33 @@ import { demoDb } from '../utilities/testTracks';
 const ImportTestTracks = () => {
   //addTestTrack
   const addTestTrack = async (track) => {
+    let thistrack = {
+      name: track.title,
+      artist: track.artist,
+      addedToCollection: new Date(),
+      isIdId: false,
+    };
+    if (track.time) {
+      thistrack.timems = track.time;
+    }
+    if (track.year) {
+      thistrack.release = track.year;
+    }
+    if (track.bpm) {
+      thistrack.bpm = track.bpm;
+    }
+    if (track.key) {
+      thistrack.key = track.key;
+    }
+    if (track.format) {
+      thistrack.format = track.format;
+    }
     const docRef = await addDoc(
       collection(
         db,
         `${AuthContext._currentValue.currentUser.uid}/tracks/children/`
       ),
-      {
-        name: track.title,
-        artist: track.artist,
-        timems: track.time,
-        addedToCollection: new Date(),
-        isIdId: false,
-        release: track.year,
-        key: track.key,
-        bpm: track.bpm,
-        format: track.format,
-      }
+      thistrack
     );
   };
   const handleImportTestTracks = () => {

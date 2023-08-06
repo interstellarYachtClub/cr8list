@@ -5,6 +5,7 @@ import Signin from '../components/Signin';
 import Signup from '../components/Signup';
 import About from './About';
 import Collection from './Collection';
+import Tracks from './Tracks';
 import EditCratelist from './EditCratelist';
 import { AuthContext } from '../context/AuthContext';
 
@@ -57,6 +58,16 @@ const Mainapp = () => {
             <RequireAuth>
               <main className="max-w-sm mx-auto">
                 <Collection />
+              </main>
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/tracks"
+          element={
+            <RequireAuth>
+              <main className="max-w-sm mx-auto">
+                <Tracks />
               </main>
             </RequireAuth>
           }

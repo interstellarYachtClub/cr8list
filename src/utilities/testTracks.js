@@ -1394,6 +1394,7 @@ export const demoDb = [
     artist: 'Tritonal feat. Jeza feat. Jeza',
     album: "I Can Breathe / Can't Keep It In",
     format: 'aiff',
+    key: 'Bmin / 10A',
     time: 460000,
     bpm: 130,
     bitrate: 1411,

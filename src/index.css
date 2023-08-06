@@ -71,6 +71,10 @@ input {
 #trackLibrary span {
   font-family: 'Roboto Condensed', sans-serif;
 }
+#tracksearch,
+#artistsearch {
+  @apply w-full;
+}
 
 button {
   @apply border border-black p-2 rounded;
