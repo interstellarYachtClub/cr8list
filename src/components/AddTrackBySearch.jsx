@@ -2,9 +2,12 @@ import { useState } from 'react';
 import { newTrackSearch } from '../utilities/formInputs';
 import deezerconfig from '../config/deezerconfig';
 import axios from 'axios';
+import { getTrackTime } from '../utilities/functions';
+import svgPlus from '../images/icons/plus-svgrepo-com.svg';
 
 const AddTrackBySearch = () => {
   const [search, setSearch] = useState({});
+  const [results, setResults] = useState(null);
 
   const handleNewSearchQ = (e) => {
     const id = e.target.id;
@@ -13,15 +16,17 @@ const AddTrackBySearch = () => {
   };
 
   const searchDeezerByTrackArtist = async (searchq) => {
-    const apiurl = `https://api.deezer.com/search?q=artist:"${searchq.artistsearch}" track:"${searchq.tracksearch}"&apikey=${deezerconfig.apikey}`;
+    //const apiurl = `https://api.deezer.com/search?q=artist:"${searchq.artistsearch}" track:"${searchq.tracksearch}"&apikey=${deezerconfig.apikey}`;
+    const apiurl = `http://localhost:8080/api/deezer/search/track/${searchq.tracksearch}/artist/${searchq.artistsearch}`;
     console.log(apiurl);
 
-    axios
-      .get(apiurl)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      });
+    try {
+      const response = await axios.get(apiurl);
+      console.log(response.data);
+      setResults(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleNewSearch = async () => {
@@ -56,6 +61,45 @@ const AddTrackBySearch = () => {
         }
       })}
       <button onClick={handleNewSearch}>Search</button>
+      <div>
+        {results ? (
+          <div>
+            <h2>//Results</h2>
+            <div className="flex flex-col space-y-4 max-w-full mx-auto pr-16">
+              <div className="flex flex-row items-center justify-between">
+                <div>Cover</div>
+                <div>Track</div>
+                <div>Artist</div>
+                <div>Time</div>
+                <div>Add</div>
+              </div>
+              {results.data.map((result) => {
+                {
+                  console.log(result);
+                }
+                return (
+                  <div className="flex flex-row items-center justify-between">
+                    <div>
+                      <img className="w-8 h-8" src={result.album.cover} />
+                    </div>
+                    <div>{result.title}</div>
+                    <div>{result.artist.name}</div>
+                    <div>{getTrackTime(result.duration, 's')}</div>
+                    <div>
+                      <button className="p-0">
+                        <img className="w-8 h-8" src={svgPlus} />
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ) : (
+          //things
+          <></>
+        )}
+      </div>
     </div>
   );
 };

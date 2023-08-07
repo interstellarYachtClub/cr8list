@@ -17,7 +17,7 @@ const TrackTable = ({ tracks }) => {
       <tbody className="rounded">
         {tracks.map((track, index) => {
           return (
-            <tr className="odd:bg-white/[.05] even:bg-white/[.1] flex flex-row">
+            <tr className="odd:bg-white/[.05] even:bg-white/[.1] flex flex-row hover:bg-white/[.5] hover:cursor-pointer">
               <td className="basis-1/12 text-center sm:basis-1/12">
                 {index + 1}
               </td>

@@ -20,11 +20,12 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"node express \"",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "express": "node app"
+    "express": "node express",
+    "all": "concurrently \"react-scripts start\" \"node express \""
   },
   "eslintConfig": {
     "extends": [
