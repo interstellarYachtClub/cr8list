@@ -2,6 +2,8 @@
 
 cratelist or "cr8list" is a web app for DJs to share and organize their music among friends and fans.
 
+[Checkout a preview screenshot](https://raw.githubusercontent.com/interstellarYachtClub/cr8list/main/screenshots/localhost_3000_tracks.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
