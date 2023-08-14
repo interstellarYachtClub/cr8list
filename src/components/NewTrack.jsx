@@ -42,7 +42,7 @@ const NewTrack = () => {
   };
 
   return (
-    <div className="newTrackForm accent-blue-950">
+    <div className="newTrackForm accent-blue-950 backdrop-blur-sm backdrop-opacity-5 bg-white/10 p-8 rounded-lg">
       {manualTrackForm.map((input) => {
         if (input.showfield) {
           return (
