@@ -114,8 +114,6 @@ const Collection = () => {
         <h2>//New Cratelist</h2>
         <NewCratelist />
       </div>
-      <h2>//Add Track Manually</h2>
-      <NewTrack />
       <div>
         <h2>//Tracks Import from json</h2>
         <ImportTestTracks />

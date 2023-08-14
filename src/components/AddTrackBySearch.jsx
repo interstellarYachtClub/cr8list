@@ -43,7 +43,7 @@ const AddTrackBySearch = () => {
   };
 
   return (
-    <div className="newSearchForm flex flex-col justify-start accent-blue-950">
+    <div className="newSearchForm flex flex-col justify-start accent-blue-950 backdrop-blur-sm backdrop-opacity-5 bg-white/10">
       {newTrackSearch.map((input) => {
         if (input.showfield) {
           return (
