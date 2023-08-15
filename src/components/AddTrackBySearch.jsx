@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { newTrackSearch } from '../utilities/formInputs';
-import deezerconfig from '../config/deezerconfig';
+import { addTrackFromDeezer } from '../utilities/reactFunctions';
 import axios from 'axios';
 import { getTrackTime } from '../utilities/functions';
 import svgPlus from '../images/icons/plus-svgrepo-com.svg';
@@ -40,6 +40,10 @@ const AddTrackBySearch = () => {
     } else {
       console.log('nosearch');
     }
+  };
+
+  const handleAddResult = (thisresult) => {
+    addTrackFromDeezer(thisresult);
   };
 
   return (
@@ -86,7 +90,10 @@ const AddTrackBySearch = () => {
                     <div>{result.artist.name}</div>
                     <div>{getTrackTime(result.duration, 's')}</div>
                     <div>
-                      <button className="p-0">
+                      <button
+                        className="p-0"
+                        onClick={() => handleAddResult(result)}
+                      >
                         <img className="w-8 h-8" src={svgPlus} />
                       </button>
                     </div>
