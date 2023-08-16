@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { newTrackSearch } from '../utilities/formInputs';
-import { addTrackFromDeezer } from '../utilities/reactFunctions';
+//import { addTrackFromDeezer } from '../utilities/reactFunctions';
 import axios from 'axios';
 import { getTrackTime } from '../utilities/functions';
 import svgPlus from '../images/icons/plus-svgrepo-com.svg';
 
-const AddTrackBySearch = () => {
+const AddTrackByScrapeBeatport = () => {
   const [search, setSearch] = useState({});
-  const [results, setResults] = useState(null);
+  const [resultBody, setResultBody] = useState(null);
 
   const handleNewSearchQ = (e) => {
     const id = e.target.id;
@@ -15,15 +15,15 @@ const AddTrackBySearch = () => {
     setSearch({ ...search, [id]: value });
   };
 
-  const searchDeezerByTrackArtist = async (searchq) => {
-    //const apiurl = `https://api.deezer.com/search?q=artist:"${searchq.artistsearch}" track:"${searchq.tracksearch}"&apikey=${deezerconfig.apikey}`;
-    const apiurl = `http://localhost:8080/api/deezer/search/track/${searchq.tracksearch}/artist/${searchq.artistsearch}`;
+  const scrapeBeatportByTrackArtist = async (searchq) => {
+    ///api/beatport/scrape/track/:track/artist/:artist
+    const apiurl = `http://localhost:8080/api/beatport/scrape/track/${searchq.tracksearch}/artist/${searchq.artistsearch}`;
     console.log(apiurl);
 
     try {
       const response = await axios.get(apiurl);
       console.log(response.data);
-      setResults(response.data);
+      setResultBody(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -32,7 +32,7 @@ const AddTrackBySearch = () => {
   const handleNewSearch = async () => {
     if (search.tracksearch && search.artistsearch) {
       console.log('both!');
-      searchDeezerByTrackArtist(search);
+      scrapeBeatportByTrackArtist(search);
     } else if (search.tracksearch && !search.artistsearch) {
       console.log('trackonly');
     } else if (!search.tracksearch && search.artistsearch) {
@@ -43,7 +43,8 @@ const AddTrackBySearch = () => {
   };
 
   const handleAddResult = (thisresult) => {
-    addTrackFromDeezer(thisresult);
+    // addTrackFromDeezer(thisresult);
+    console.log(thisresult);
   };
 
   return (
@@ -66,36 +67,38 @@ const AddTrackBySearch = () => {
       })}
       <button onClick={handleNewSearch}>Search</button>
       <div>
-        {results ? (
+        {resultBody !== null && resultBody.state.status === 'success' ? (
           <div>
             <h2>//Results</h2>
-            <div className="flex flex-col space-y-4 max-w-full mx-auto pr-16">
+            <div className="flex flex-col space-y-4 max-w-full pr-16">
               <div className="flex flex-row items-center justify-between">
                 <div>Cover</div>
                 <div>Track</div>
                 <div>Artist</div>
                 <div>Time</div>
+                <div>Bpm</div>
+                <div>Key</div>
                 <div>Add</div>
               </div>
-              {results.data.map((result) => {
+              {resultBody.state.data.tracks.data.map((track) => {
                 {
-                  console.log(result);
+                  console.log(track);
                 }
                 return (
                   <div className="flex flex-row items-center justify-between">
                     <div>
-                      <img className="w-8 h-8" src={result.album.cover} />
+                      <img
+                        className="w-8 h-8"
+                        src={track.release.release_image_uri}
+                      />
                     </div>
-                    <div>{result.title}</div>
-                    <div>{result.artist.name}</div>
-                    <div>{getTrackTime(result.duration, 's')}</div>
+                    <div>{track.track_name}</div>
+                    <div>Artist</div>
+                    <div>.length</div>
+                    <div>{track.bpm}</div>
+                    <div>{track.key_name}</div>
                     <div>
-                      <button
-                        className="p-0"
-                        onClick={() => handleAddResult(result)}
-                      >
-                        <img className="w-8 h-8" src={svgPlus} />
-                      </button>
+                      <img className="w-8 h-8" src={svgPlus} />
                     </div>
                   </div>
                 );
@@ -103,12 +106,11 @@ const AddTrackBySearch = () => {
             </div>
           </div>
         ) : (
-          //things
-          <></>
+          <div>Make a search</div>
         )}
       </div>
     </div>
   );
 };
 
-export default AddTrackBySearch;
+export default AddTrackByScrapeBeatport;

@@ -26,7 +26,7 @@ const Mainapp = () => {
           path="/"
           element={
             <>
-              <main className="max-w-sm mx-auto">
+              <main className="max-w-sm mx-auto lg:max-w-xl">
                 <Signin />
               </main>
             </>
@@ -36,7 +36,7 @@ const Mainapp = () => {
           path="/signup"
           element={
             <>
-              <main className="max-w-sm mx-auto">
+              <main className="max-w-sm mx-auto lg:max-w-xl">
                 <Signup />
               </main>
             </>
@@ -46,7 +46,7 @@ const Mainapp = () => {
           path="/about"
           element={
             <>
-              <main className="max-w-sm mx-auto">
+              <main className="max-w-sm mx-auto lg:max-w-xl">
                 <About />
               </main>
             </>
@@ -56,7 +56,7 @@ const Mainapp = () => {
           path="/collection"
           element={
             <RequireAuth>
-              <main className="max-w-sm mx-auto">
+              <main className="max-w-sm mx-auto lg:max-w-xl">
                 <Collection />
               </main>
             </RequireAuth>
@@ -66,7 +66,7 @@ const Mainapp = () => {
           path="/tracks"
           element={
             <RequireAuth>
-              <main className="max-w-sm mx-auto">
+              <main className="max-w-sm mx-auto lg:max-w-xl">
                 <Tracks />
               </main>
             </RequireAuth>
@@ -76,7 +76,7 @@ const Mainapp = () => {
           path="/crate/:crateid/edit"
           element={
             <RequireAuth>
-              <main className="max-w-sm mx-auto">
+              <main className="max-w-sm mx-auto lg:max-w-xl">
                 <EditCratelist />
               </main>
             </RequireAuth>

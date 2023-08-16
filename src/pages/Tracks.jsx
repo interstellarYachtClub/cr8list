@@ -13,7 +13,8 @@ import {
 import Header from '../components/Header';
 import NewTrack from '../components/NewTrack';
 import TrackTable from '../components/TrackTable';
-import AddTrackBySearch from '../components/AddTrackBySearch';
+import AddTrackBySearchDeezer from '../components/AddTrackBySearchDeezer';
+import AddTrackByScrapeBeatport from '../components/AddTrackByScrapeBeatport';
 import ImportTestTracks from '../components/ImportTestTracks';
 const Tracks = () => {
   const [tracks, setTracks] = useState([]);
@@ -42,8 +43,10 @@ const Tracks = () => {
   }, []);
   return (
     <div>
-      <h2>//Add Track by Search</h2>
-      <AddTrackBySearch />
+      <h2>//Add Track by Scrape Beatport</h2>
+      <AddTrackByScrapeBeatport />
+      <h2>//Add Track by Search Deezer</h2>
+      <AddTrackBySearchDeezer />
       <h2>//Add Track Manually</h2>
       <NewTrack />
       <div>
