@@ -2,6 +2,26 @@
   @apply w-full -m-[8px] text-base max-w-[100vw];
 }
 
+#trackLibrary tr:not(thead > tr) {
+  @apply hover:h-12;
+}
+
+#trackLibrary tr div img {
+  @apply h-12 w-full object-cover object-center;
+}
+
+#trackLibrary tr:hover div {
+  @apply inline z-0 w-full backdrop-blur-md bg-gradient-to-r from-indigo-500;
+}
+
+#trackLibrary tr {
+  @apply hover:bg-gradient-to-r from-indigo-500;
+}
+
+#trackLibrary tr:hover td {
+  @apply z-10;
+}
+
 #trackLibrary td {
   @apply whitespace-nowrap max-w-[45vw];
 }
