@@ -11,15 +11,15 @@
 }
 
 #trackLibrary tr:hover div {
-  @apply inline z-0 w-full backdrop-blur-md bg-gradient-to-r from-indigo-500;
+  @apply inline z-0 w-full backdrop-blur-md bg-gradient-to-r from-[#FF0058];
 }
 
-#trackLibrary tr {
-  @apply hover:bg-gradient-to-r from-indigo-500;
+#trackLibrary tr:not(thead > tr) {
+  @apply hover:bg-gradient-to-r from-[#FF0058] ease-in-out duration-300;
 }
 
 #trackLibrary tr:hover td {
-  @apply z-10;
+  @apply z-10 text-white text-lg;
 }
 
 #trackLibrary td {

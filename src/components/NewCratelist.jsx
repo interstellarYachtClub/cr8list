@@ -47,14 +47,14 @@ const NewCratelist = () => {
   };
 
   return (
-    <div className="newCratelistForm flex flex-col justify-start accent-blue-950">
+    <div className="newCratelistForm flex flex-col p-8 m-2 justify-start accent-[#FF2700] rounded backdrop-blur-sm backdrop-opacity-5 bg-white/10">
       {newCrateForm.map((input) => {
         if (input.showfield) {
           return (
-            <div className={input.id} key={input.id}>
+            <div className={input.id + ' ' + 'form-input'} key={input.id}>
               <label>{input.label}</label>
               <input
-                className="rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-blue-950"
+                className="rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-[#FF2700]"
                 id={input.id}
                 type={input.type}
                 placeholder={input.placeholder}

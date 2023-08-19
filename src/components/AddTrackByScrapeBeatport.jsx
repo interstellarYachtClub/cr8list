@@ -48,14 +48,14 @@ const AddTrackByScrapeBeatport = () => {
   };
 
   return (
-    <div className="newSearchForm flex flex-col justify-start accent-blue-950 backdrop-blur-sm backdrop-opacity-5 bg-white/10">
+    <div className="newSearchForm flex flex-col justify-start accent-[#FF2700] backdrop-blur-sm backdrop-opacity-5 bg-white/10">
       {newTrackSearch.map((input) => {
         if (input.showfield) {
           return (
             <div className={input.id} key={input.id}>
               <label>{input.label}</label>
               <input
-                className="rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-blue-950"
+                className="rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-[#FF2700]"
                 id={input.id}
                 type={input.type}
                 placeholder={input.placeholder}

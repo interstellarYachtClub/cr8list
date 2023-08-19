@@ -1,8 +1,19 @@
 const Header = () => {
+  window.addEventListener('scroll', function () {
+    const thisheader = document.querySelector('.App-header');
+    const scrollPosition = window.scrollY;
+
+    if (scrollPosition > 0) {
+      thisheader.classList.add('not-on-top');
+    } else {
+      thisheader.classList.remove('not-on-top');
+    }
+  });
+
   return (
     <header className="App-header w-full drop-shadow-md shadow-white text-white items-center flex flex-row fixed sticky top-0">
       <a href="/">
-        <h1>CrateList</h1>
+        <text className="text-black">CrateList</text>
       </a>
       <div className="flex items-center italic px-4">
         Dig into your playlists.

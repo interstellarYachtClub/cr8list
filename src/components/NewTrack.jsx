@@ -42,14 +42,14 @@ const NewTrack = () => {
   };
 
   return (
-    <div className="newTrackForm accent-blue-950 backdrop-blur-sm backdrop-opacity-5 bg-white/10 p-8 rounded-lg">
+    <div className="newTrackForm accent-[#FF0058] backdrop-blur-sm backdrop-opacity-5 bg-white/10 p-8 rounded-lg">
       {manualTrackForm.map((input) => {
         if (input.showfield) {
           return (
             <div className={input.id + ' flex justify-between'} key={input.id}>
               <label>{input.label}</label>
               <input
-                className="rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-blue-950"
+                className="rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-rounded"
                 id={input.id}
                 type={input.type}
                 placeholder={input.placeholder}
@@ -59,10 +59,10 @@ const NewTrack = () => {
           );
         }
       })}
-      <div className="flex justify-between accent-blue-950">
+      <div className="flex justify-between accent-[#FF2700]">
         <label for="key_select">Key</label>
         <select
-          className="accent-blue-950 rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-blue-950"
+          className="accent-[#FF2700] rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-[#FF2700]"
           name="key_select"
           id="key_select"
           onChange={handleKeySelect}

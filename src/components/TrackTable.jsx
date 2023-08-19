@@ -1,7 +1,7 @@
 const TrackTable = ({ tracks }) => {
   return (
-    <table className="track-table table-auto border border-[#678eaf]">
-      <thead className="border-b border-blue-950">
+    <table className="track-table table-auto">
+      <thead className="border-b border-[#FF0058]">
         <tr className="bg-blue-950/[.05] flex flex-row">
           <th className="basis-1/12 text-center">#</th>
           <th className="basis-6/12 sm:basis-4/12">Track</th>
@@ -17,7 +17,7 @@ const TrackTable = ({ tracks }) => {
       <tbody className="rounded">
         {tracks.map((track, index) => {
           return (
-            <tr className="relative odd:bg-white/[.05] even:bg-white/[.1] flex flex-row hover:text-slate-50 hover:bg-white/[.25] hover:cursor-pointer">
+            <tr className="relative odd:bg-white/[.05] even:bg-white/[.1] flex flex-row hover:text-slate-50 hover:bg-white/[.25] hover:cursor-pointer items-center">
               <div className="hidden absolute">
                 <img src={track.deezercover} />
               </div>

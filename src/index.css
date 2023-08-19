@@ -16,10 +16,30 @@ code {
     monospace;
 } */
 
+/*
+#FF0058
+rgb(255 0 88)
+
+*/
+
 @import './styles/trackLibrary.css';
 /*** H E A D E R ***/
 header.App-header {
-  @apply backdrop-opacity-10 bg-black/30 saturate-200 backdrop-blur-sm backdrop-hue-rotate-15;
+  @apply backdrop-opacity-10 saturate-200 backdrop-blur-sm backdrop-hue-rotate-15 z-20;
+}
+
+header.App-header.not-on-top {
+  background-color: rgba(0, 0, 0, 0.9);
+  transition: background-color 1s cubic-bezier(0.42, 0, 0.58, 1); /* Easing in and out */
+}
+
+header.App-header.not-on-top text {
+  @apply text-3xl text-white hover:text-[#FF2700]; /* Easing in and out */
+}
+
+header text {
+  @apply text-3xl hover:text-[#FF2700];
+  filter: drop-shadow(0 1px 1px rgb(255 255 255 / 0.1));
 }
 
 header.App-header div {
@@ -32,6 +52,10 @@ header.App-header div {
   height: 100%;
   min-height: 100vh;
 }
+nav a {
+  @apply hover:text-[#FF0058];
+}
+
 body {
   font-family: 'Kanit', sans-serif;
   font-weight: 200;
@@ -81,11 +105,15 @@ p {
   @apply py-5;
 }
 
+a {
+  @apply hover:text-[#FF2700];
+}
+
 input {
-  @apply backdrop-blur-sm backdrop-opacity-5 bg-black/50 pb-2;
+  @apply backdrop-blur-sm backdrop-opacity-5 bg-black/25 pb-2;
 }
 select {
-  @apply backdrop-blur-sm backdrop-opacity-5 bg-black/50 pb-2;
+  @apply backdrop-blur-sm backdrop-opacity-5 bg-black/25 pb-2;
 }
 
 #trackLibrary span {
@@ -97,9 +125,18 @@ select {
 }
 
 button {
-  @apply border border-black p-2 rounded;
+  @apply border border-[#FF2700] w-1/2 p-2 rounded hover:border-black hover:bg-black/25 ease-in-out duration-300;
 }
 
 .newSearchForm {
   @apply p-8 rounded-md;
+}
+
+/*** F O R M S ***/
+.form-input.listName {
+  @apply w-2/3;
+}
+
+.newSearchForm {
+  @apply justify-center;
 }
