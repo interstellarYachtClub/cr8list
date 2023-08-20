@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { newTrackSearch } from '../utilities/formInputs';
 //import { addTrackFromDeezer } from '../utilities/reactFunctions';
 import axios from 'axios';
-import { getTrackTime } from '../utilities/functions';
+import { getTrackTime, getBeatportArtists } from '../utilities/functions';
 import svgPlus from '../images/icons/plus-svgrepo-com.svg';
 
 const AddTrackByScrapeBeatport = () => {
@@ -67,43 +67,48 @@ const AddTrackByScrapeBeatport = () => {
       })}
       <button onClick={handleNewSearch}>Search</button>
       <div>
-        {resultBody !== null && resultBody.state.status === 'success' ? (
+        {console.log(resultBody)}
+        {resultBody !== null && resultBody.status === 'success' ? (
           <div>
-            <h2>//Results</h2>
-            <div className="flex flex-col space-y-4 max-w-full pr-16">
-              <div className="flex flex-row items-center justify-between">
-                <div>Cover</div>
-                <div>Track</div>
-                <div>Artist</div>
-                <div>Time</div>
-                <div>Bpm</div>
-                <div>Key</div>
-                <div>Add</div>
+            <details>
+              <summary>
+                <text className="text-3xl mb-2 mt-2">//Results</text>
+              </summary>
+              <div className="flex flex-col space-y-4 max-w-full pr-16">
+                <div className="flex flex-row items-center justify-between">
+                  <div>Cover</div>
+                  <div>Track</div>
+                  <div>Artist</div>
+                  <div>Time</div>
+                  <div>Bpm</div>
+                  <div>Key</div>
+                  <div>Add</div>
+                </div>
+                {resultBody.data.tracks.data.map((track) => {
+                  {
+                    console.log(track);
+                  }
+                  return (
+                    <div className="flex flex-row items-center justify-between">
+                      <div>
+                        <img
+                          className="w-8 h-8"
+                          src={track.release.release_image_uri}
+                        />
+                      </div>
+                      <div>{track.track_name}</div>
+                      <div>{getBeatportArtists(track.artists)}</div>
+                      <div>{getTrackTime(track.length, 'ms')}</div>
+                      <div>{track.bpm}</div>
+                      <div>{track.key_name}</div>
+                      <div>
+                        <img className="w-8 h-8" src={svgPlus} />
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
-              {resultBody.state.data.tracks.data.map((track) => {
-                {
-                  console.log(track);
-                }
-                return (
-                  <div className="flex flex-row items-center justify-between">
-                    <div>
-                      <img
-                        className="w-8 h-8"
-                        src={track.release.release_image_uri}
-                      />
-                    </div>
-                    <div>{track.track_name}</div>
-                    <div>Artist</div>
-                    <div>.length</div>
-                    <div>{track.bpm}</div>
-                    <div>{track.key_name}</div>
-                    <div>
-                      <img className="w-8 h-8" src={svgPlus} />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            </details>
           </div>
         ) : (
           <div>Make a search</div>
