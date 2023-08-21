@@ -1,20 +1,24 @@
 #trackLibrary {
-  @apply w-full -m-[8px] text-base max-w-[100vw];
+  @apply w-full text-base max-w-[100vw] pb-12;
 }
 
 #trackLibrary tr:not(thead > tr) {
   @apply hover:h-12;
 }
 
-#trackLibrary tr div img {
+/* #trackLibrary tr div {
   @apply h-12 w-full object-cover object-center;
-}
+} */
 
-#trackLibrary tr:hover div {
+/* #trackLibrary tr:hover > div {
   @apply inline z-0 w-full backdrop-blur-md bg-gradient-to-r from-[#FF0058];
+} */
+
+#trackLibrary tr:hover td.albumartwork div {
+  @apply h-12 w-12 border border-[#FF0058];
 }
 
-#trackLibrary tr:not(thead > tr) {
+#trackLibrary tr:not(thead > tr):not(tr:last-child) {
   @apply hover:bg-gradient-to-r from-[#FF0058] ease-in-out duration-300;
 }
 
@@ -23,5 +27,5 @@
 }
 
 #trackLibrary td {
-  @apply whitespace-nowrap max-w-[45vw];
+  @apply whitespace-nowrap;
 }

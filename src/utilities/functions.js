@@ -25,6 +25,22 @@ export const getTrackTime = (time, units) => {
   }
 };
 
+export const getAverageBpm = (tracks) => {
+  let bpm = 0;
+  let tracktotal = 0;
+  let avgbpm = 0;
+  tracks.map((track) => {
+    tracktotal++;
+    bpm = bpm + track.bpm;
+    avgbpm = (bpm / tracktotal).toFixed(3);
+  });
+  return avgbpm;
+};
+
+export const getTotalTime = (times, units) => {
+  //need to write
+};
+
 export const getBeatportArtists = (artists) => {
   if (artists.length > 1) {
     let artistslist = [];

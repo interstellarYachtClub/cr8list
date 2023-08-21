@@ -47,7 +47,7 @@ const NewCratelist = () => {
   };
 
   return (
-    <div className="newCratelistForm flex flex-col p-8 m-2 justify-start accent-[#FF2700] rounded backdrop-blur-sm backdrop-opacity-5 bg-white/10">
+    <div className="newCratelistForm flex flex-col p-8 justify-start accent-[#FF2700] rounded backdrop-blur-sm backdrop-opacity-5 bg-white/10">
       {newCrateForm.map((input) => {
         if (input.showfield) {
           return (
