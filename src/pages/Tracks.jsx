@@ -10,7 +10,6 @@ import {
   query,
   where,
 } from 'firebase/firestore';
-import Header from '../components/Header';
 import NewTrack from '../components/NewTrack';
 import TrackTable from '../components/TrackTable';
 import AddTrackBySearchDeezer from '../components/AddTrackBySearchDeezer';

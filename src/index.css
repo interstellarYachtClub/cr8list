@@ -129,7 +129,7 @@ button {
 }
 
 .newSearchForm {
-  @apply p-8 rounded-md;
+  @apply py-8 px-8 rounded-md;
 }
 
 /*** F O R M S ***/

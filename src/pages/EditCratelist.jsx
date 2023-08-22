@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
+import svgPlus from '../images/icons/plus-svgrepo-com.svg';
 import {
   doc,
   setDoc,
@@ -106,12 +107,18 @@ const EditCratelist = (props) => {
         <ul className="flex flex-col">
           {tracks.map((track) => (
             <li className="flex flex-row justify-between py-2 items-center">
-              {track.data().name} / {track.data().artist}
+              <div>
+                <img src={track.data().dzCover} />
+              </div>
+              <div className="flex flex-col text-start">
+                <div>{track.data().name}</div>
+                <div>{track.data().artist}</div>
+              </div>
               <button
                 id={track.id}
                 onClick={() => handleAddTrackToPlaylist(track)}
               >
-                +
+                <img className="w-8 h-8" src={svgPlus} />
               </button>
             </li>
           ))}
@@ -140,12 +147,18 @@ const EditCratelist = (props) => {
       <ul className="flex flex-col">
         {tracks.map((track) => (
           <li className="flex flex-row justify-between py-2 items-center">
-            {track.data().name} / {track.data().artist}
+            <div>
+              <img src={track.data().dzCover} />
+            </div>
+            <div className="flex flex-col text-start">
+              <div>{track.data().name}</div>
+              <div>{track.data().artist}</div>
+            </div>
             <button
               id={track.id}
               onClick={() => handleAddTrackToPlaylist(track)}
             >
-              +
+              <img className="w-8 h-8" src={svgPlus} />
             </button>
           </li>
         ))}

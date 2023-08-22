@@ -1,7 +1,7 @@
-export const getTrackTime = (time, units) => {
+export const getTrackTime = (time, src) => {
   let seconds = 0;
   let minutes = 0;
-  if (units === 's') {
+  if (src === 'deezer') {
     seconds = time % 60;
     minutes = Math.floor(time / 60);
     return (
@@ -9,7 +9,7 @@ export const getTrackTime = (time, units) => {
         {minutes}:{seconds}
       </div>
     );
-  } else if (units === 'ms') {
+  } else if (src === 'beatport') {
     seconds = Math.floor(time / 1000) % 60;
     minutes = Math.floor(time / 1000 / 60);
     if (seconds < 10) {

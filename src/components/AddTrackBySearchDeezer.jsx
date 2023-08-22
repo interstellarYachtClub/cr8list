@@ -69,26 +69,21 @@ const AddTrackBySearchDeezer = () => {
         {results ? (
           <div>
             <h2>//Results</h2>
-            <div className="flex flex-col space-y-4 max-w-full pr-16">
-              <div className="flex flex-row items-center justify-between">
-                <div>Cover</div>
-                <div>Track</div>
-                <div>Artist</div>
-                <div>Time</div>
-                <div>Add</div>
-              </div>
+            <div className="flex flex-col space-y-4 max-w-full">
               {results.data.map((result) => {
                 {
                   console.log(result);
                 }
                 return (
-                  <div className="flex flex-row items-center justify-between">
+                  <div className="flex flex-row items-center justify-between text-center">
                     <div>
-                      <img className="w-8 h-8" src={result.album.cover} />
+                      <img className="w-16 h-16" src={result.album.cover} />
                     </div>
-                    <div>{result.title}</div>
-                    <div>{result.artist.name}</div>
-                    <div>{getTrackTime(result.duration, 's')}</div>
+                    <div>
+                      <div>{result.title}</div>
+                      <div>{result.artist.name}</div>
+                    </div>
+                    <div>{getTrackTime(result.duration, 'deezer')}</div>
                     <div>
                       <button
                         className="p-0"

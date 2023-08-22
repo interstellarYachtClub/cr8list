@@ -10,7 +10,6 @@ import {
   query,
   where,
 } from 'firebase/firestore';
-import Header from '../components/Header';
 import NewCratelist from '../components/NewCratelist';
 import NewTrack from '../components/NewTrack';
 import TrackTable from '../components/TrackTable';

@@ -74,33 +74,28 @@ const AddTrackByScrapeBeatport = () => {
               <summary>
                 <text className="text-3xl mb-2 mt-2">//Results</text>
               </summary>
-              <div className="flex flex-col space-y-4 max-w-full pr-16">
-                <div className="flex flex-row items-center justify-between">
-                  <div>Cover</div>
-                  <div>Track</div>
-                  <div>Artist</div>
-                  <div>Time</div>
-                  <div>Bpm</div>
-                  <div>Key</div>
-                  <div>Add</div>
-                </div>
+              <div className="flex flex-col space-y-4 max-w-full">
                 {resultBody.data.tracks.data.map((track) => {
                   {
                     console.log(track);
                   }
                   return (
-                    <div className="flex flex-row items-center justify-between">
+                    <div className="flex flex-row items-center justify-between text-center">
                       <div>
                         <img
-                          className="w-8 h-8"
+                          className="w-16 h-16"
                           src={track.release.release_image_uri}
                         />
                       </div>
-                      <div>{track.track_name}</div>
-                      <div>{getBeatportArtists(track.artists)}</div>
-                      <div>{getTrackTime(track.length, 'ms')}</div>
-                      <div>{track.bpm}</div>
-                      <div>{track.key_name}</div>
+                      <div>
+                        <div>{getBeatportArtists(track.artists)}</div>
+                        <div>{track.track_name}</div>
+                        <div>{getTrackTime(track.length, 'beatport')}</div>
+                      </div>
+                      <div>
+                        <div>{track.bpm}</div>
+                        <div>{track.key_name}</div>
+                      </div>
                       <div>
                         <img className="w-8 h-8" src={svgPlus} />
                       </div>

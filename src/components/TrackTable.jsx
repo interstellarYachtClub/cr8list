@@ -7,7 +7,7 @@ const TrackTable = ({ tracks }) => {
   const [filter, setFilter] = useState('');
   const [tracklist, setTracklist] = useState(tracks);
   useEffect(() => {
-    tableSort();
+    tableSort('.track-table');
     setTracklist(tracks);
   }, [tracks]);
 
@@ -24,6 +24,7 @@ const TrackTable = ({ tracks }) => {
       );
     });
     setTracklist(filteredTracks);
+    tableSort('.track-table');
   };
 
   return (
@@ -66,7 +67,7 @@ const TrackTable = ({ tracks }) => {
                     <td className="basis-1/12 albumartwork">
                       <div
                         style={{
-                          backgroundImage: `url('${track.deezercover}')`,
+                          backgroundImage: `url('${track.dzCover}')`,
                           backgroundSize: 'cover',
                           backgroundPosition: 'center',
                           alignItems: 'center',
@@ -82,25 +83,25 @@ const TrackTable = ({ tracks }) => {
                       {track.artist}
                     </td>
                     <td className="bpm-col hidden sm:block sm:basis-1/12 text-center">
-                      {track.bpm}
+                      {track.bpm > 0 ? track.bpm : ''}
                     </td>
                     <td className="bpm-col hidden sm:block sm:basis-2/12 text-center">
-                      {track.key}
+                      {track.key ? track.key : ''}
                     </td>
                   </tr>
                 );
               })
             : '...No tracks found or filtered for...'}
-          {tracklist.length > 0 ? (
-            <tr>
-              Total tracks: {tracklist.length} | Average BPM:{' '}
-              {getAverageBpm(tracklist)} | Average Track Time:
-            </tr>
-          ) : (
-            <tr>Total tracks: 0</tr>
-          )}
         </tbody>
       </table>
+      {tracklist.length > 0 ? (
+        <div>
+          Total tracks: {tracklist.length} | Average BPM:{' '}
+          {getAverageBpm(tracklist)} | Average Track Time:
+        </div>
+      ) : (
+        <div>Total tracks: 0</div>
+      )}
     </div>
   );
 };

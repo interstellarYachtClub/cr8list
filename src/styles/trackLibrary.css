@@ -18,7 +18,7 @@
   @apply h-12 w-12 border border-[#FF0058];
 }
 
-#trackLibrary tr:not(thead > tr):not(tr:last-child) {
+#trackLibrary tr:not(thead > tr) {
   @apply hover:bg-gradient-to-r from-[#FF0058] ease-in-out duration-300;
 }
 
