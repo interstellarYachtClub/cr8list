@@ -62,7 +62,7 @@ const TrackTable = ({ tracks }) => {
                 return (
                   <tr
                     id={track.id}
-                    className="relative odd:bg-white/[.05] even:bg-white/[.1] flex flex-row justify-start hover:text-slate-50 hover:bg-white/[.25] hover:cursor-pointer items-center hover:items-center"
+                    className="relative odd:bg-white/[.05] even:bg-white/[.1] flex flex-row justify-start hover:text-slate-50 hover:bg-white/[.25] hover:cursor-pointer items-center"
                   >
                     <td className="basis-1/12 albumartwork">
                       <div

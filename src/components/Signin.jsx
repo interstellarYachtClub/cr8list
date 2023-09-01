@@ -53,27 +53,31 @@ const Signin = () => {
 
   return (
     <div className="flex flex-col space-y-4 text-center">
-      <input
-        className="rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-blue-950"
-        type="text"
-        placeholder="email"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        className="rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-blue-950"
-        type="password"
-        placeholder="password"
-        onChange={(e) => setPasswd(e.target.value)}
-      />
-      <button onClick={signInAccount}>sign in</button>
+      <div className="flex flex-col items-center">
+        <input
+          className="rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-blue-950"
+          type="text"
+          placeholder="email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          className="rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-blue-950"
+          type="password"
+          placeholder="password"
+          onChange={(e) => setPasswd(e.target.value)}
+        />
+        <button onClick={signInAccount}>sign in</button>
+      </div>
       {/* <div className="pt-8">//google signin</div>
       <button onClick={signIntoGoogle}>sign into google</button> */}
       <p>... or ...</p>
       <a href="/signup">
-        <button>create account</button>
+        <button className="inline-block">create account</button>
       </a>
-      <div className="pt-8">//logout</div>
-      <button onClick={logOut}>sign out</button>
+      <div>
+        <div className="pt-8 mb-2">//logout</div>
+        <button onClick={logOut}>sign out</button>
+      </div>
     </div>
   );
 };

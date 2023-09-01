@@ -3,7 +3,7 @@
 }
 
 #trackLibrary tr:not(thead > tr) {
-  @apply hover:h-12;
+  @apply hover:h-9;
 }
 
 /* #trackLibrary tr div {
@@ -15,7 +15,7 @@
 } */
 
 #trackLibrary tr:hover td.albumartwork div {
-  @apply h-12 w-12 border border-[#FF0058];
+  @apply h-6 w-6 border border-[#FF0058];
 }
 
 #trackLibrary tr:not(thead > tr) {
@@ -27,5 +27,5 @@
 }
 
 #trackLibrary td {
-  @apply whitespace-nowrap;
+  @apply text-ellipsis overflow-hidden;
 }

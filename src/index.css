@@ -86,7 +86,7 @@ body {
 }
 
 main {
-  @apply mx-2 p-2 flex flex-col items-center;
+  @apply mx-2 p-2 flex flex-col items-center justify-center text-ellipsis;
 }
 
 h1 {
