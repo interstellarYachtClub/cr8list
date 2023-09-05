@@ -95,10 +95,13 @@ const TrackTable = ({ tracks }) => {
         </tbody>
       </table>
       {tracklist.length > 0 ? (
-        <div>
-          Total tracks: {tracklist.length} | Average BPM:{' '}
-          {getAverageBpm(tracklist)} | Average Track Time:
-        </div>
+        <ul className="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-2 justify-center w-full text-center border-t border-[#FF0058]">
+          <li>Total tracks: {tracklist.length}</li>
+          <li className="hidden sm:inline">|</li>
+          <li>Average BPM: {getAverageBpm(tracklist)}</li>
+          <li className="hidden sm:inline">|</li>
+          <li>Average BPM: </li>
+        </ul>
       ) : (
         <div>Total tracks: 0</div>
       )}

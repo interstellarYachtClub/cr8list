@@ -64,7 +64,7 @@ const NewTrack = () => {
   };
 
   return (
-    <div className="newTrackForm accent-[#FF0058] backdrop-blur-sm backdrop-opacity-5 bg-white/10 p-8 rounded-lg">
+    <div className="newTrackForm accent-[#FF0058] backdrop-blur-sm backdrop-opacity-5 bg-white/10 p-4 rounded-lg">
       {manualTrackForm.map((input) => {
         if (input.showfield) {
           return (

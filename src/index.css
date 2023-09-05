@@ -24,16 +24,19 @@ rgb(255 0 88)
 
 @import './styles/trackLibrary.css';
 /*** H E A D E R ***/
-header.App-header {
+header.App-header-desktop,
+header.App-header-mobile {
   @apply backdrop-opacity-10 saturate-200 backdrop-blur-sm backdrop-hue-rotate-15 z-20;
 }
 
-header.App-header.not-on-top {
+header.App-header-desktop.not-at-top,
+header.App-header-mobile.not-at-top {
   background-color: rgba(0, 0, 0, 0.9);
   transition: background-color 1s cubic-bezier(0.42, 0, 0.58, 1); /* Easing in and out */
 }
 
-header.App-header.not-on-top text {
+header.App-header-desktop.not-at-top text,
+header.App-header-mobile.not-at-top text {
   @apply text-3xl text-white hover:text-[#FF2700]; /* Easing in and out */
 }
 
@@ -42,7 +45,8 @@ header text {
   filter: drop-shadow(0 1px 1px rgb(255 255 255 / 0.1));
 }
 
-header.App-header div {
+header.App-header-desktop div,
+header.App-header-mobile div {
   @apply text-sm;
 }
 
@@ -86,7 +90,7 @@ body {
 }
 
 main {
-  @apply mx-2 p-2 flex flex-col items-center justify-center text-ellipsis;
+  @apply mx-auto p-2 flex flex-col items-center justify-center text-ellipsis box-border max-w-[19.75rem];
 }
 
 h1 {
@@ -129,7 +133,7 @@ button {
 }
 
 .newSearchForm {
-  @apply py-8 px-8 rounded-md;
+  @apply p-4 rounded-md;
 }
 
 /*** F O R M S ***/

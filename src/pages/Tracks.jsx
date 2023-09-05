@@ -41,7 +41,7 @@ const Tracks = () => {
     getTracks();
   }, []);
   return (
-    <div>
+    <>
       <h2>//Add Track by Scrape Beatport</h2>
       <AddTrackByScrapeBeatport />
       <h2>//Add Track by Search Deezer</h2>
@@ -53,10 +53,10 @@ const Tracks = () => {
         <ImportTestTracks />
       </div>
       <h2>Track Library</h2>
-      <div className="flex flex-col" id="trackLibrary" key="trackLibrary">
+      <section className="flex flex-col" id="trackLibrary" key="trackLibrary">
         <TrackTable tracks={tracks} />
-      </div>
-    </div>
+      </section>
+    </>
   );
 };
 

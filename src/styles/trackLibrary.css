@@ -1,10 +1,18 @@
-#trackLibrary {
-  @apply w-full text-base max-w-[100vw] pb-12;
+#trackLibrary tr:not(thead > tr) {
+  @apply hover:bg-gradient-to-r from-[#FF0058] ease-in-out duration-300;
 }
 
-#trackLibrary tr:not(thead > tr) {
-  @apply hover:h-9;
+#trackLibrary tr:hover td {
+  @apply text-white;
 }
+
+/* #trackLibrary td {
+  @apply text-ellipsis overflow-hidden;
+} */
+
+/* #trackLibrary tbody {
+  @apply h-full;
+} */
 
 /* #trackLibrary tr div {
   @apply h-12 w-full object-cover object-center;
@@ -13,19 +21,3 @@
 /* #trackLibrary tr:hover > div {
   @apply inline z-0 w-full backdrop-blur-md bg-gradient-to-r from-[#FF0058];
 } */
-
-#trackLibrary tr:hover td.albumartwork div {
-  @apply h-6 w-6 border border-[#FF0058];
-}
-
-#trackLibrary tr:not(thead > tr) {
-  @apply hover:bg-gradient-to-r from-[#FF0058] ease-in-out duration-300;
-}
-
-#trackLibrary tr:hover td {
-  @apply z-10 text-white text-lg;
-}
-
-#trackLibrary td {
-  @apply text-ellipsis overflow-hidden;
-}

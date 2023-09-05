@@ -1,6 +1,7 @@
 import { useContext, useReducer } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Header from '../components/Header';
+import { Footer } from '../components/Footer';
 import Signin from '../components/Signin';
 import Signup from '../components/Signup';
 import About from './About';
@@ -26,7 +27,7 @@ const Mainapp = () => {
           path="/"
           element={
             <>
-              <main className="max-w-sm mx-auto lg:max-w-xl">
+              <main className="main">
                 <Signin />
               </main>
             </>
@@ -36,7 +37,7 @@ const Mainapp = () => {
           path="/signup"
           element={
             <>
-              <main className="max-w-sm mx-auto lg:max-w-xl">
+              <main className="main">
                 <Signup />
               </main>
             </>
@@ -46,7 +47,7 @@ const Mainapp = () => {
           path="/about"
           element={
             <>
-              <main className="max-w-sm mx-auto lg:max-w-xl">
+              <main className="main">
                 <About />
               </main>
             </>
@@ -56,7 +57,7 @@ const Mainapp = () => {
           path="/collection"
           element={
             <RequireAuth>
-              <main className="max-w-sm mx-auto lg:max-w-xl">
+              <main className="main">
                 <Collection />
               </main>
             </RequireAuth>
@@ -66,7 +67,7 @@ const Mainapp = () => {
           path="/tracks"
           element={
             <RequireAuth>
-              <main className="max-w-sm mx-auto lg:max-w-xl">
+              <main className="main">
                 <Tracks />
               </main>
             </RequireAuth>
@@ -76,13 +77,14 @@ const Mainapp = () => {
           path="/crate/:crateid/edit"
           element={
             <RequireAuth>
-              <main className="max-w-sm mx-auto lg:max-w-xl">
+              <main className="main">
                 <EditCratelist />
               </main>
             </RequireAuth>
           }
         />
       </Routes>
+      <Footer />
     </>
   );
 };
