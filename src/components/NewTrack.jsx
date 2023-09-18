@@ -64,48 +64,56 @@ const NewTrack = () => {
   };
 
   return (
-    <div className="newTrackForm accent-[#FF0058] backdrop-blur-sm backdrop-opacity-5 bg-white/10 p-4 rounded-lg">
-      {manualTrackForm.map((input) => {
-        if (input.showfield) {
-          return (
-            <div className={input.id + ' flex justify-between'} key={input.id}>
-              <label>{input.label}</label>
-              <input
-                className="rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-rounded"
-                id={input.id}
-                type={input.type}
-                placeholder={input.placeholder}
-                onChange={handleTrackInput}
-              />
-            </div>
-          );
-        }
-      })}
-      <div className="flex justify-between accent-[#FF2700]">
-        <label for="key_select">Key</label>
-        <select
-          className="accent-[#FF2700] rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-[#FF2700]"
-          name="key_select"
-          id="key_select"
-          onChange={handleKeySelect}
-        >
-          <option value="">select the key for this track</option>
-          {trackKeys.map((key) => {
+    <details class="w-full">
+      <summary>
+        <h2>//Manually Add A Track</h2>
+      </summary>
+      <div className="newTrackForm accent-[#FF0058] backdrop-blur-sm backdrop-opacity-5 bg-white/10 p-4 rounded-lg">
+        {manualTrackForm.map((input) => {
+          if (input.showfield) {
             return (
-              <option
-                id={'keyid' + key.id}
-                value={key.short + ' / ' + key.openkey}
+              <div
+                className={input.id + ' flex justify-between'}
+                key={input.id}
               >
-                {key.camelot} / {key.long} / {key.openkey}
-              </option>
+                <label>{input.label}</label>
+                <input
+                  className="rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-rounded"
+                  id={input.id}
+                  type={input.type}
+                  placeholder={input.placeholder}
+                  onChange={handleTrackInput}
+                />
+              </div>
             );
-          })}
-        </select>
+          }
+        })}
+        <div className="flex justify-between accent-[#FF2700]">
+          <label for="key_select">Key</label>
+          <select
+            className="accent-[#FF2700] rounded m-2 text-center focus:animate-pulse border-b-2 border-white/[0] focus:outline-none focus:border-b-2 focus:border-[#FF2700]"
+            name="key_select"
+            id="key_select"
+            onChange={handleKeySelect}
+          >
+            <option value="">select the key for this track</option>
+            {trackKeys.map((key) => {
+              return (
+                <option
+                  id={'keyid' + key.id}
+                  value={key.short + ' / ' + key.openkey}
+                >
+                  {key.camelot} / {key.long} / {key.openkey}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+        <div>
+          <button onClick={handleAddTrack}>Add Track</button>
+        </div>
       </div>
-      <div>
-        <button onClick={handleAddTrack}>Add Track</button>
-      </div>
-    </div>
+    </details>
   );
 };
 

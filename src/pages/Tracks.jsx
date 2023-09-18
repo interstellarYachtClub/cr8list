@@ -46,7 +46,6 @@ const Tracks = () => {
       <AddTrackByScrapeBeatport />
       <h2>//Add Track by Search Deezer</h2>
       <AddTrackBySearchDeezer />
-      <h2>//Add Track Manually</h2>
       <NewTrack />
       <div>
         <h2>//Tracks Import from json</h2>
